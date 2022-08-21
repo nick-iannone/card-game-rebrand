@@ -274,8 +274,8 @@ INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on
 VALUES ('Embedded Assault Unit', '10', 'sensory.jpg', 'When this enters, start a random Subroutine from your deck.', 2, 2, 3, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_damage, is_heroic)
 VALUES ('Kinetic Conversion System', '15', 'emergency_repairs.jpg', 'When this takes damage, restore 2 Integrity.', 1, 8, 10, true, true, true);
-INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_attack, on_turn_start, is_feared)
-VALUES ('x3m0, the Entwined', '10', 'x3m0.jpg', 'When this enters, gain 2 Stability. At the beginning of your turn, gain 5 Credits and 1 Stability. This can only attack Stability.', 1, 5, 3, true, true, true, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_turn_start, is_feared)
+VALUES ('x3m0, the Entwined', '10', 'x3m0.jpg', 'When this enters, gain 2 Stability. At the beginning of your turn, gain 5 Credits and 1 Stability. This can only attack Stability.', 1, 5, 3, true, true, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_leave, on_attack, is_dreaded)
 VALUES ('Wrex', '30', 'wrex.jpg', 'When this enters, attacks, or dies, give all friendly troops +1 to all stats.', 3, 7, 10, true, true, true, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_turn_start)
