@@ -11,7 +11,7 @@ export default {
   name: "countdown",
   data() {
     return {
-      countdown: 200,
+      countdown: 10,
     };
   },
   methods: {

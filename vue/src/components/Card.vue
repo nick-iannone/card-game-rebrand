@@ -2,7 +2,7 @@
   <div :class="determineRarity(card)">
     <div class="card-header">
       <div :class="cardNameClass(card)">{{ card.name }}</div>
-      <div class="card-cost">
+      <div class="card-cost" v-if="card.cost > 0">
         {{ card.cost }}
         <font-awesome-icon
           :icon="['fa', 'coins']"

@@ -176,11 +176,6 @@ INSERT INTO contracts (name, cost, text, duration, age, is_active)
 VALUES ('Ceasefire', '30', E'At the beginning of your turn, return all troops to their owners\' hands and increase each player\'s Stability by 2.', 1, 0, false);
 INSERT INTO contracts (name, cost, text, duration, age, is_active) 
 VALUES ('Stimulus Package', '10', 'At the beginning of your turn, put an aid counter on this. At 1 counter create a 2/2/2 Soldier. At 2, gain 10 gold. At 3, restore 5 integrity and gain 2 reputation.', 3, 0, true);
-INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)
-VALUES ('Embedded Assault Unit', '10', 'sensory.jpg', 'When this enters, start a random Subroutine from your deck.', 2, 2, 3, true);
-INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_damage, is_heroic)
-VALUES ('Kinetic Conversion System', '15', 'emergency_repairs.jpg', 'When this takes damage, restore 2 Integrity.', 1, 8, 10, true, true, true);
-
 
 CREATE TABLE decks_contracts (
         deck_id int,
@@ -275,6 +270,35 @@ INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, ca
 VALUES ('Informant', '5', 'spotted.jpg', E'Readiness. This troop\'s Attack can\'t be greater than 1 and it can only attack Stability.', 1, 3, 1, true, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)
 VALUES ('Hacker', '5', 'hacker.jpg', 'When this enters, reduce opposing Stability by 2.', 1, 3, 1, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)
+VALUES ('Embedded Assault Unit', '10', 'sensory.jpg', 'When this enters, start a random Subroutine from your deck.', 2, 2, 3, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_damage, is_heroic)
+VALUES ('Kinetic Conversion System', '15', 'emergency_repairs.jpg', 'When this takes damage, restore 2 Integrity.', 1, 8, 10, true, true, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_attack, on_turn_start, is_feared)
+VALUES ('x3m0, the Entwined', '10', 'x3m0.jpg', 'When this enters, gain 2 Stability. At the beginning of your turn, gain 5 Credits and 1 Stability. This can only attack Stability.', 1, 5, 3, true, true, true, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, on_leave, on_attack, is_dreaded)
+VALUES ('Wrex', '30', 'wrex.jpg', 'When this enters, attacks, or dies, give all friendly troops +1 to all stats.', 3, 7, 10, true, true, true, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_turn_start)
+VALUES ('Swarm Bot', '5', 'swarm_bot.jpg', E'At the beginning of your turn, give +1 Attack and +1 Resilience to all friendly troops named \"Swarm Bot\", then create a Swarm Bot.', 1, 1, 1, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)
+VALUES ('Provisioner Bot', '15', 'rover.jpg', 'When this enters, give a friendly troop +2 Attack and +2 Resilience.', 2, 3, 3, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, can_attack, on_enter, is_feared)
+VALUES ('Assimilator Hybrid', '15', 'replacement.jpg', 'Readiness. When this enters, it becomes a copy of an enemy troop.', 1, 1, 1, true, true, true);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_attack, is_heroic) 
+VALUES ('BB-90, Bunker Buster', '20', 'fat_mech.jpg','When this attacks the HQ, it deals its damage to the HQ twice.', 5, 5, 10, true, true);
+INSERT INTO cards (name, cost, image, attack, resilience, loyalty) 
+VALUES ('Human', '0', 'technician.jpg', 1, 1, 1);
+INSERT INTO cards (name, cost, image, attack, resilience, loyalty) 
+VALUES ('Robot', '0', 'robot.jpg', 1, 1, 1);
+INSERT INTO cards (name, cost, image, attack, resilience, loyalty) 
+VALUES ('Hybrid', '0', 'hybrid.jpg', 1, 1, 1);
+INSERT INTO cards (name, cost, image, attack, resilience, loyalty) 
+VALUES ('Deepened', '0', 'deepened.jpg', 1, 1, 1);
+INSERT INTO cards (name, cost, image, attack, resilience, loyalty) 
+VALUES ('Unmanaged Organic', '0', 'unmanaged_organic.jpg', 1, 1, 1);
+INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, can_attack, on_attack, is_hallowed) 
+VALUES ('HVTE, the Crowd Pleaser', '20', 'tank_3.jpg', 'Readiness. Whenever this troop attacks, it deals one damage to each enemy troop.', 4, 6, 5, true, true, true);
+
 
 
 CREATE TABLE decks_cards (

@@ -211,7 +211,7 @@ export default {
       this.$store.commit('SET_GAME_DECK', this.selectedDeck);
       setTimeout(() => {
         this.$router.push({ name: "arena" });
-      }, 200000);
+      }, 10000);
     },
     onChangePage(pageOfItems) {
       // update page of items

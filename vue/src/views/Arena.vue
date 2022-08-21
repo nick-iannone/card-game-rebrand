@@ -591,11 +591,15 @@ export default {
           if (card.isAttacking) {
             this.sendGameState();
             this.game.myGame.attack.attacker = card;
-            // informant check
-            if (this.game.myGame.attack.attacker.name === "Informant") {
+            // rep only check
+            if (this.game.myGame.attack.attacker.name === "Informant" || this.game.myGame.attack.attacker.name === "x3m0, the Entwined") {
               this.game.oppRepAttack = true;
               this.game.myGame.attack.type = "rep";
-              this.game.myGame.attack.value = 1;
+              if (this.game.myGame.attack.attacker.name === "Informant") {
+                this.game.myGame.attack.value = 1;
+              } else {
+                this.game.myGame.attack.value = card.attack
+              }
               this.game.myGame.attack.attacker = {};
               this.game.oppGame.rep -= (1 + this.game.oppGame.repLossMod);
               card.isAttacking = false;
@@ -1246,20 +1250,20 @@ export default {
       this.sendGameState();
     },
 
-    provisionerTarget() {
+    provisionerBotTarget() {
       if (this.game.myGame.combatZone.cards.length === 1) {
-        this.game.myGame.combatZone.cards[0].attack += 1;
-        this.game.myGame.combatZone.cards[0].resilience += 1;
+        this.game.myGame.combatZone.cards[0].attack += 2;
+        this.game.myGame.combatZone.cards[0].resilience += 2;
         this.sendGameState();
       } else {
-        this.game.myGame.targetInitiator = "provisionerResolver";
+        this.game.myGame.targetInitiator = "provisionerBotResolver";
         this.game.choosingMyTargets = true;
       }
     },
 
-    provisionerResolverMe(card) {
-      card.attack += 1;
-      card.resilience += 1;
+    provisionerBotResolverMe(card) {
+      card.attack += 2;
+      card.resilience += 2;
       this.game.choosingMyTargets = false;
       this.game.myGame.targetInitiator = "";
       this.sendGameState();
@@ -1311,6 +1315,46 @@ export default {
     },
 
     //  OPP TARGETERS
+
+    assimilatorHybridTarget(card) {
+      if (this.game.oppGame.combatZone.cards.length > 0) {
+        this.game.myGame.attack.attacker = card;
+        this.game.myGame.targetInitiator = "assimilatorHybridResolver";
+        this.game.choosingOppTargets = true;
+      }
+    },
+
+    assimilatorHybridResolverMe(card) {
+      for (var i = this.game.myGame.combatZone.cards.length - 1; i >= 0; i--) {
+        if (this.game.myGame.combatZone.cards[i].id === this.game.myGame.attack.attacker.id) {
+          this.game.myGame.combatZone.cards[i].name = card.name;
+          this.game.myGame.combatZone.cards[i].cost = card.cost;
+          this.game.myGame.combatZone.cards[i].image_name = card.attack;
+          this.game.myGame.combatZone.cards[i].abilities = card.abilities;
+          this.game.myGame.combatZone.cards[i].attack = card.attack;
+          this.game.myGame.combatZone.cards[i].resilience = card.resilience;
+          this.game.myGame.combatZone.cards[i].loyalty = card.loyalty;
+          this.game.myGame.combatZone.cards[i].on_enter = card.on_enter;
+          this.game.myGame.combatZone.cards[i].on_leave = card.on_leave;
+          this.game.myGame.combatZone.cards[i].on_attack = card.on_attack;
+          this.game.myGame.combatZone.cards[i].on_damage = card.on_damage;
+          this.game.myGame.combatZone.cards[i].on_turn_start = card.on_turn_start;
+          this.game.myGame.combatZone.cards[i].on_turn_end = card.on_turn_end;
+          this.game.myGame.combatZone.cards[i].is_attacking = card.is_attacking;
+          this.game.myGame.combatZone.cards[i].is_target = card.is_target;
+          this.game.myGame.combatZone.cards[i].is_hallowed = card.is_hallowed;
+          this.game.myGame.combatZone.cards[i].is_fabled = card.is_fabled;
+          this.game.myGame.combatZone.cards[i].is_heroic = card.is_heroic;
+          this.game.myGame.combatZone.cards[i].is_dreaded = card.is_dreaded;
+          this.game.myGame.combatZone.cards[i].is_feared = card.is_feared;
+          this.game.myGame.combatZone.cards[i].is_vile = card.is_vile;
+          break;
+        }
+        this.resetAttackObject();
+        this.sendGameState();
+      }
+
+    },
 
     singleTargetSpecialistTarget() {
       if (this.game.oppGame.combatZone.cards.length > 0) {
@@ -2094,7 +2138,7 @@ export default {
       }
     },
 
-    malachiFabledBard() {
+    x3m0TheEntwined() {
       this.game.myGame.rep += 2;
     },
 
@@ -2229,12 +2273,12 @@ export default {
 
     // ATTACK RELATED
 
-    catapult(card) {
+    bb90BunkerBuster(card) {
       this.game.myGame.directive = card;
       this.game.oppGame.fort -= card.attack;
     },
 
-    catapultDirective(card) {
+    bb90BunkerBusterDirective(card) {
       this.game.myGame.fort -= card.attack;
       this.game.oppGame.directive = {};
     },
@@ -2305,9 +2349,9 @@ export default {
       this.game.myGame.fort -= this.game.oppGame.directive.loyalty;
     },
 
-    gregorHallowedGeneral(card) {
+    wrex(card) {
       if (!card.isAttacking) {
-        this.game.myGame.combatZone.mods.push("gregorHallowedGeneralMod");
+        this.game.myGame.combatZone.mods.push("wrexMod");
       }
       for (var i = 0; i < this.game.myGame.combatZone.cards.length; i++) {
         this.game.myGame.combatZone.cards[i].attack += 1;
@@ -2316,26 +2360,26 @@ export default {
       }
     },
 
-    gregorHallowedGeneralMod(card, action) {
-      if (action === "leavegregorHallowedGeneral") {
+    wrexMod(card, action) {
+      if (action === "leavewrex") {
         for (var i = 0; i < this.game.myGame.combatZone.cards.length; i++) {
           this.game.myGame.combatZone.cards[i].attack += 1;
           this.game.myGame.combatZone.cards[i].resilience += 1;
           this.game.myGame.combatZone.cards[i].loyalty += 1;
         }
         this.game.myGame.combatZone.mods.splice(
-          this.game.myGame.combatZone.mods.indexOf("gregorHallowedGeneralMod"),
+          this.game.myGame.combatZone.mods.indexOf("wrexMod"),
           1
         );
       }
-      if (action === "oppgregorHallowedGeneral") {
+      if (action === "oppwrex") {
         for (var y = 0; y < this.game.oppGame.combatZone.cards.length; y++) {
           this.game.oppGame.combatZone.cards[y].attack += 1;
           this.game.oppGame.combatZone.cards[y].resilience += 1;
           this.game.oppGame.combatZone.cards[y].loyalty += 1;
         }
         this.game.oppGame.combatZone.mods.splice(
-          this.game.oppGame.combatZone.mods.indexOf("gregorHallowedGeneralMod"),
+          this.game.oppGame.combatZone.mods.indexOf("wrexMod"),
           1
         );
       }
@@ -2365,8 +2409,8 @@ export default {
       }
     },
 
-    veteranArchers(card) {
-      if (card.name === "Veteran Archers") {
+    hvteTheCrowdPleaser(card) {
+      if (card.name === "HVTE, the Crowd Pleaser") {
         this.game.myGame.directive = card;
         for (
           var i = this.game.oppGame.combatZone.cards.length - 1;
@@ -2380,7 +2424,7 @@ export default {
       }
     },
 
-    veteranArchersDirective() {
+    hvteTheCrowdPleaserDirective() {
       for (var i = this.game.myGame.combatZone.cards.length - 1; i >= 0; i--) {
         this.game.myGame.combatZone.cards[i].resilience -= 1;
         this.checkForDamageMods(this.game.myGame.combatZone.cards[i], false);
@@ -2630,14 +2674,14 @@ export default {
       }
     },
 
-    tenaciousDefender() {
-      this.game.myGame.combatZone.mods.push("tenaciousDefenderMod");
+    kineticConversionSystem() {
+      this.game.myGame.combatZone.mods.push("kineticConversionSystemMod");
     },
 
-    tenaciousDefenderModMyDamage(target, isFortAttack) {
+    kineticConversionSystemModMyDamage(target, isFortAttack) {
       if (
         !isFortAttack &&
-        this.game.myGame.attack.attacker.name === "Tenacious Defender"
+        this.game.myGame.attack.attacker.name === "Kinetic Conversion System"
       ) {
         if (target.attack > 0) {
           this.game.myGame.fort += 2;
@@ -2645,9 +2689,9 @@ export default {
       }
     },
 
-    tenaciousDefenderModOppDamage(target, isFortAttack) {
+    kineticConversionSystemModOppDamage(target, isFortAttack) {
       if (
-        target.name === "Tenacious Defender" &&
+        target.name === "Kinetic Conversion System" &&
         this.game.myGame.attack.attacker.attack > 0 &&
         !isFortAttack
       ) {
@@ -2655,20 +2699,20 @@ export default {
       }
     },
 
-    tenaciousDefenderAttackedByOpp() {
+    kineticConversionSystemAttackedByOpp() {
       this.game.myGame.fort += 2;
     },
 
-    tenaciousDefenderMod(card, action) {
-      if (action === "leavetenaciousDefender") {
+    kineticConversionSystemMod(card, action) {
+      if (action === "leavekineticConversionSystem") {
         this.game.myGame.combatZone.mods.splice(
-          this.game.myGame.combatZone.mods.indexOf("leavetenaciousDefenderMod"),
+          this.game.myGame.combatZone.mods.indexOf("leavekineticConversionSystemMod"),
           1
         );
       }
-      if (action === "opptenaciousDefender") {
+      if (action === "oppkineticConversionSystem") {
         this.game.oppGame.combatZone.mods.splice(
-          this.game.oppGame.combatZone.mods.indexOf("tenaciousDefenderMod"),
+          this.game.oppGame.combatZone.mods.indexOf("kineticConversionSystemMod"),
           1
         );
       }
@@ -3028,17 +3072,35 @@ export default {
 
     // ON TURN START TRIGGER
 
-    childSoldierTurnStart() {
+    swarmBotTurnStart() {
       for (var f = 0; f < this.game.myGame.combatZone.cards.length; f++) {
-        if (this.game.myGame.combatZone.cards[f].name === "Child Soldier") {
+        if (this.game.myGame.combatZone.cards[f].name === "Swarm Bot") {
           this.game.myGame.combatZone.cards[f].attack += 1;
           this.game.myGame.combatZone.cards[f].resilience += 1;
-          this.game.myGame.combatZone.cards[f].loyalty += 1;
         }
+      }
+      if (this.game.myGame.combatZone.cards.length <= 9) {
+        let newSwarmBot = {
+          id: 5215 + this.game.myGame.turn.count * this.getRandom(),
+          name: "Swarm Bot",
+          cost: 5,
+          imageName: "swarm_bot.jpg",
+          abilities:
+            "At the beginning of your turn, give +1 Attack and +1 Resilience to all friendly troops named \"Swarm Bot\", then create a Swarm Bot.",
+          flavor: "",
+          attack: 1,
+          resilience: 1,
+          loyalty: 1,
+          isAttacking: false,
+          isTarget: false,
+          canAttack: false,
+        };
+        this.game.myGame.combatZone.cards.push(newSwarmBot);
+        this.checkForCombatZoneMods(newSwarmBot, "enter");
       }
     },
 
-    malachiFabledBardTurnStart() {
+    x3m0TheEntwinedTurnStart() {
       this.game.myGame.rep += 1;
       this.game.myGame.cache += 5;
     },
