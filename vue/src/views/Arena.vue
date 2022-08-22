@@ -30,7 +30,7 @@
       <myavailablecontracts :game="game" />
     </div>
 
-    <modal name="choose-one-modal" v-if="showOptions" height="325px" width="485px"
+    <modal name="choose-one-modal" v-if="showOptions" height="325px" width="500px"
       styles="background-color: rgb(0, 0, 0, 0.6); border-radius: 10px; border: 2px solid black;">
       <div class=modal-content>
         <div class="modal-header">
@@ -43,7 +43,7 @@
     </modal>
 
     <modal name="victory-modal" v-if="show" height="355px" width="485px" :clickToClose="false"
-      styles="background-color: rgb(0, 0, 0, 0.6); border-radius: 10px; border: 2px solid black;">
+      styles="background-color: rgb(0, 0, 0, 0.8); border-radius: 10px; border: 2px solid black;">
       <div class="vic-modal-content">
         <div class="vic-modal-header">VICTORY!</div>
         <p class="vic-modal-prompt">The enemy keep is yours!</p>
@@ -1325,11 +1325,12 @@ export default {
     },
 
     assimilatorHybridResolverMe(card) {
+      this.game.choosingOppTargets = false;
       for (var i = this.game.myGame.combatZone.cards.length - 1; i >= 0; i--) {
         if (this.game.myGame.combatZone.cards[i].id === this.game.myGame.attack.attacker.id) {
           this.game.myGame.combatZone.cards[i].name = card.name;
           this.game.myGame.combatZone.cards[i].cost = card.cost;
-          this.game.myGame.combatZone.cards[i].image_name = card.attack;
+          this.game.myGame.combatZone.cards[i].image_name = card.image_name;
           this.game.myGame.combatZone.cards[i].abilities = card.abilities;
           this.game.myGame.combatZone.cards[i].attack = card.attack;
           this.game.myGame.combatZone.cards[i].resilience = card.resilience;
@@ -4428,7 +4429,7 @@ export default {
 
 .mulligan-prompt {
   font-family: "Orbitron";
-  font-size: 30px;
+  font-size: 20px;
   color: white;
 }
 
@@ -4534,7 +4535,7 @@ export default {
 
 .vic-modal-header {
   font-family: "Orbitron";
-  font-size: 90px;
+  font-size: 70px;
   color: white;
   text-shadow: 2px 2px rgb(88, 88, 88);
 }
@@ -4544,7 +4545,6 @@ export default {
   font-family: "Bai Jamjuree";
   font-size: 25px;
   margin-top: 20px;
-  font-style: italic;
 }
 
 .exit-btn {
@@ -4682,20 +4682,20 @@ export default {
 .option-cont {
   border: 1 px solid white;
   border-radius: 8px;
-  background-color: rgba(28, 162, 118, 0.619);
+  background-color: rgba(0, 119, 79, 0.842);
   transition: all 0.2s ease-in-out;
   box-shadow: 4px 4px rgb(0, 0, 0, 0.5);
   padding: 10px;
   margin: 15px;
   color: white;
-  font-family: 'Orbitron';
-  font-size: 24px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 20px;
 }
 .option-cont:hover {
   transform: scale(1.08);
   cursor: pointer;
   box-shadow: 6px 6px rgb(0, 0, 0, 0.5);
   background-image: url("../assets/textures/egg-shell.png"),
-    linear-gradient(60deg, rgba(0, 61, 46, 0.8), rgba(10, 231, 187, 0.8));
+    linear-gradient(60deg, rgba(11, 160, 123, 0.8), rgba(11, 160, 123, 0.8));
 }
 </style>

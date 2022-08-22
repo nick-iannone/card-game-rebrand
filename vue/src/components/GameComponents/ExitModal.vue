@@ -60,7 +60,7 @@ export default {
   font-family: 'Orbitron';
   font-size: 27px;
   font-weight: 800;
-  color: rgb(247, 109, 109);
+  color: rgb(243, 242, 242);
   text-shadow: 2px 2px black;
 }
 
