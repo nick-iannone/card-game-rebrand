@@ -52,7 +52,7 @@
     </modal>
 
     <modal name="defeat-modal" v-if="showDefeat" height="355px" width="485px" :clickToClose="false"
-      styles="background-color: rgb(0, 0, 0, 0.6); border-radius: 10px; border: 2px solid black;">
+      styles="background-color: rgb(0, 0, 0, 0.8); border-radius: 10px; border: 2px solid black;">
       <div class="vic-modal-content">
         <div class="vic-modal-header">DEFEAT!</div>
         <p class="vic-modal-prompt">All is lost!</p>
@@ -1738,7 +1738,7 @@ export default {
           summonLeader = false;
         }
       }
-      if (thrallCount >= 5 && summonLeader) {
+      if (thrallCount >= 4 && summonLeader) {
         if (this.game.myGame.combatZone.cards.length <= 9) {
           let newAlphaThrall = {
             id: 7799 + this.game.myGame.turn.count * this.getRandom(),
@@ -1912,7 +1912,7 @@ export default {
           cost: 5,
           imageName: "thrall.jpg",
           abilities:
-            "If you control 5 Thralls, create an Alpha Thrall.",
+            "If you control 4 Thralls, create an Alpha Thrall.",
           flavor: "",
           attack: 1,
           resilience: 2,
@@ -1933,7 +1933,7 @@ export default {
           cost: 5,
           imageName: "thrall.jpg",
           abilities:
-            "If you control 5 Thralls, create an Alpha Thrall.",
+            "If you control 4 Thralls, create an Alpha Thrall.",
           flavor: "",
           attack: 1,
           resilience: 2,
@@ -2552,7 +2552,7 @@ export default {
           cost: 5,
           imageName: "thrall.jpg",
           abilities:
-            "If you control 5 Thralls, create an Alpha Thrall.",
+            "If you control 4 Thralls, create an Alpha Thrall.",
           flavor: "",
           attack: 1,
           resilience: 2,
@@ -2573,7 +2573,7 @@ export default {
           cost: 5,
           imageName: "thrall.jpg",
           abilities:
-            "If you control 5 Thralls, create an Alpha Thrall.",
+            "If you control 4 Thralls, create an Alpha Thrall.",
           flavor: "",
           attack: 1,
           resilience: 2,

@@ -285,11 +285,14 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  /* padding: 20px; */
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
   width: 70%;
   height: 810px;
+  background-color: rgba(29, 12, 36, 0.568);
+  border-radius: 10px;;
 }
 
 /* PAGINATION  //////////////////////////////////////////////////////////////////////////////////////////  */
