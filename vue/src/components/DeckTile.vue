@@ -44,7 +44,6 @@ export default {
     },
     selectDeck(deck) {
       console.log("hitting here in deck tile");
-      deck.isSelected = true;
       this.$emit("toggleSelectedDeck", deck);
     },
   },
@@ -60,9 +59,9 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-image: url("../assets/textures/diagonal-striped-brick.png"),
+  background-image: url("../assets/textures/3px-tile.png"),
     linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
-  border: 2px solid black;
+  border: 2px solid rgba(71, 71, 71, 0.493);
   box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out;
 }
@@ -70,8 +69,8 @@ export default {
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
   transform: scale(1.02);
   cursor: pointer;
-  background-image: url("../assets/textures/diagonal-striped-brick.png"),
-    linear-gradient(180deg, rgb(0, 0, 0), rgb(61, 84, 189), rgb(0, 0, 0));
+  background-image: url("../assets/textures/3px-tile.png"),
+    linear-gradient(180deg, rgb(0, 0, 0), rgb(79, 111, 255), rgb(0, 0, 0));
 }
 .deck-tile-selected {
   width: 250px;
@@ -81,21 +80,23 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-image: url("../assets/textures/diagonal-striped-brick.png"),
-    linear-gradient(rgb(86, 59, 243), rgb(7, 26, 112));
+  background-image: url("../assets/textures/3px-tile.png"),
+    linear-gradient(rgb(43, 100, 255), rgb(1, 29, 107));
   border: 2px solid rgb(255, 255, 255);
   box-shadow: 0 0 5px 5px rgb(43, 100, 255), 0 0 5px 5px rgb(255, 255, 255),
     0 0 5px 5px rgb(43, 100, 255);
   transition: all 0.2s ease-in-out;
 }
 .deck-tile-selected:hover {
-  box-shadow: 0 0 5px 5px rgb(43, 100, 255), 0 0 5px 5px rgb(255, 255, 255),
-    0 0 5px 5px rgb(43, 100, 255);
+    background-image: url("../assets/textures/3px-tile.png"),
+    linear-gradient(rgb(43, 100, 255), rgb(1, 29, 107));
+  box-shadow: 0 0 6px 6px rgb(43, 100, 255), 0 0 6px 6px rgb(255, 255, 255),
+    0 0 6px 6px rgb(43, 100, 255);
   transform: scale(1.02);
   cursor: pointer;
 }
 .deck-tile-name {
-  font-family: "Bai Jamjuree";
+  font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   width: 80%;
   color: white;
@@ -114,7 +115,7 @@ export default {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.938);
 }
 .deck-tile-name-selected {
-  font-family: "Bai Jamjuree";
+  font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   width: 80%;
   color: white;
@@ -123,9 +124,9 @@ export default {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.774);
   background-image: linear-gradient(
     60deg,
-    rgb(0, 0, 0),
-    rgba(73, 131, 255, 0.808),
-    rgb(0, 0, 0)
+    rgba(0, 0, 0, 0.651),
+    rgba(71, 58, 255, 0.973),
+    rgba(0, 0, 0, 0.658)
   );
   padding: 5px 15px 5px 15px;
   border: 1px solid rgb(255, 255, 255);

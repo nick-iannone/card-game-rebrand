@@ -2,25 +2,21 @@
   <div class="game-setup">
     <div class="player-panel">
       <div class="left-side-panel">
-        <div class="player-banner">
-          <div class="banner-username">
-            {{ this.$store.state.user.username }}
-          </div>
-          <div class="user-stats">Level: 4 | Lifetime Wins: 12</div>
-        </div>
+        <playerpanel />
         <!-- <div class="leader-tile"></div> -->
-        <button
+        <div class="mm-button-cont">
+          <button
           class="ready-button"
           :class="{ ready: this.readyForBattleMessage.readyForBattle }"
           @click.prevent="toggleReadyForBattle"
-          v-if="renderButton"
           :disabled="disableButton"
         >
           READY FOR BATTLE
         </button>
-        <button class="ready-button" @click.prevent="retreat">
+        <button class="leave-mm-button" @click.prevent="retreat">
           LEAVE GAME
         </button>
+        </div>
       </div>
       <!-- && this.selectedDeck != null -->
       <div class="decks-container">
@@ -103,11 +99,13 @@
 import Countdown from "@/components/Countdown.vue";
 import CardService from "@/services/CardService.js";
 import decktile from "@/components/DeckTile.vue";
+import playerpanel from "@/components/PlayerBanner.vue";
 
 export default {
   components: {
     Countdown,
     decktile,
+    playerpanel
   },
   data() {
     return {
@@ -129,7 +127,6 @@ export default {
     renderButton() {
       if (this.$store.state.game.oppGame.username != '') {
         if (this.selectedDeck.cards && this.selectedDeck.contracts) {
-          console.log("selected deck exists!", this.selectedDeck);
           return true;
         }
       }
@@ -157,13 +154,15 @@ export default {
   },
   methods: {
     toggleSelectedDeck(deck) {
-      deck.isSelected = true;
-      for (var i = 0; i < this.myDecks.length; i++) {
-        if (deck.deckID != this.myDecks[i].deckID) {
-          this.myDecks[i].isSelected = false;
+      deck.isSelected = !deck.isSelected;
+      if (deck.isSelected) {
+        for (var i = 0; i < this.myDecks.length; i++) {
+          if (deck.deckID != this.myDecks[i].deckID) {
+            this.myDecks[i].isSelected = false;
+          }
         }
+        this.selectedDeck = deck;
       }
-      this.selectedDeck = deck;
     },
     retreat() {
       this.$store.state.stompClient.send(
@@ -209,9 +208,7 @@ export default {
     sendToGame() {
       this.$store.state.matchmakingSubscription.unsubscribe();
       this.$store.commit('SET_GAME_DECK', this.selectedDeck);
-      setTimeout(() => {
-        this.$router.push({ name: "arena" });
-      }, 10000);
+      this.$router.push({ name: "arena" });
     },
     onChangePage(pageOfItems) {
       // update page of items
@@ -244,7 +241,7 @@ export default {
   border-radius: 10px;
   width: 1500px;
   height: 450px;
-  margin: 15px 0px 10px 0px;
+  margin: 15px 0px 15px 0px;
   background-image: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.7),
@@ -258,46 +255,16 @@ export default {
 .left-side-panel {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
-.player-banner {
-  width: 500px;
-  height: 150px;
-  border: 1px solid white;
-  border-radius: 10px;
-  background-image: url("../assets/textures/egg-shell.png"),
-    linear-gradient(black, rgb(66, 99, 189));
-  margin: 30px 30px 30px 30px;
-}
-.banner-username {
-  font-size: 60px;
-  color: white;
-  font-weight: 600;
-  font-family: 'Bai Jamjuree', sans-serif;
-  padding: 10px;
-  text-align: center;
-}
-.user-stats {
-  font-family: 'Bai Jamjuree', sans-serif;
-  padding: 10px;
-  color: white;
-  font-size: 30px;
+.mm-button-cont {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-}
-.leader-tile {
-  width: 300px;
-  height: 150px;
-  border: 1px solid grey;
-  border-radius: 10px;
-  background-image: url("../assets/textures/egg-shell.png"),
-    linear-gradient(black, rgb(56, 66, 95));
-  margin: 5px 30px 15px 30px;
+  margin-top: 10px;
 }
 .ready-button {
-  width: 40%;
+  width: 300px;
   height: 55px;
   background-color: black;
   border: 1px solid white;
@@ -310,7 +277,37 @@ export default {
   outline: none;
 }
 .ready-button:hover {
-  background-color: rgb(255, 0, 0);
+    background-image:
+    linear-gradient(rgb(43, 100, 255), rgb(1, 29, 107));
+  border: 2px solid rgb(255, 255, 255);
+  cursor: pointer;
+  outline: none;
+}
+.ready {
+  background-image: url("../assets/textures/3px-tile.png"),
+    linear-gradient(rgb(43, 100, 255), rgb(1, 29, 107));
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 0 5px 5px rgb(43, 100, 255), 0 0 5px 5px rgb(255, 255, 255),
+    0 0 5px 5px rgb(43, 100, 255);
+}
+.ready:focus {
+  outline: none;
+}
+.leave-mm-button {
+  width: 45%;
+  height: 55px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 10px 20px 10px;
+  outline: none;
+}
+.leave-mm-button:hover {
+  background-color: rgb(255, 15, 15);
   cursor: pointer;
   outline: none;
 }
@@ -324,7 +321,7 @@ export default {
 }
 .vs {
   font-size: 100px;
-  margin: -75px 0px -75px 0px;
+  margin: -20px 0px -10px 0px;
   color: white;
   font-family: 'Orbitron', sans-serif;
   text-shadow: 8px 8px rgba(0, 0, 0, 0.575);
@@ -367,7 +364,7 @@ export default {
   background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
   font-family: 'Orbitron', sans-serif;
-  font-size: 90px;
+  font-size: 70px;
 }
 
 @keyframes animate {
@@ -378,13 +375,5 @@ export default {
     background-position: 500%;
   }
 }
-.ready {
-  background-color: red;
-  border: 1px solid red;
-  box-shadow: 0 0 10px 10px rgb(255, 43, 43), 0 0 10px 10px rgb(255, 255, 255),
-    0 0 10px 10px rgb(255, 0, 0);
-}
-.ready:focus {
-  outline: none;
-}
+
 </style>
