@@ -1,7 +1,9 @@
 <template>
-  <draggable class="zone-hand" id="my-hand-component" name="my-hand-component" v-model="game.hand"
+  <draggable class="zone-hand-cont" id="my-hand-component" name="my-hand-component" v-model="game.hand"
     :options="{ group: 'cards', put: false }">
-    <tile :class="{ castable: isCastable(card) }" :card="card" :key="card.id" v-for="card in this.game.hand" />
+    <transition-group class="zone-hand">
+      <tile :class="{ castable: isCastable(card) }" :card="card" :key="card.id" v-for="card in this.game.hand" />
+    </transition-group>
   </draggable>
 </template>
 
@@ -33,4 +35,5 @@ export default {
 </script>
 
 <style>
+
 </style>

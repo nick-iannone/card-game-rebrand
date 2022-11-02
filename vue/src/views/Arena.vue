@@ -759,6 +759,7 @@ export default {
     onAttackTriggerCheck() {
       if (this.game.myGame.attack.attacker != {}) {
         if (this.game.myGame.attack.attacker.onAttack) {
+          console.log(this.game.myGame.attack.attacker.name);
           try {
             this[this.camelize(this.game.myGame.attack.attacker.name)](
               this.game.myGame.attack.attacker
@@ -2139,7 +2140,7 @@ export default {
       }
     },
 
-    x3m0TheEntwined() {
+    xmTheEntwined() {
       this.game.myGame.rep += 2;
     },
 
@@ -2274,12 +2275,12 @@ export default {
 
     // ATTACK RELATED
 
-    bb90BunkerBuster(card) {
+    bBBunkerBuster(card) {
       this.game.myGame.directive = card;
       this.game.oppGame.fort -= card.attack;
     },
 
-    bb90BunkerBusterDirective(card) {
+    bBBunkerBusterDirective(card) {
       this.game.myGame.fort -= card.attack;
       this.game.oppGame.directive = {};
     },
@@ -2410,7 +2411,7 @@ export default {
       }
     },
 
-    hvteTheCrowdPleaser(card) {
+    hVTETheCrowdPleaser(card) {
       if (card.name === "HVTE, the Crowd Pleaser") {
         this.game.myGame.directive = card;
         for (
@@ -2425,7 +2426,7 @@ export default {
       }
     },
 
-    hvteTheCrowdPleaserDirective() {
+    hVTETheCrowdPleaserDirective() {
       for (var i = this.game.myGame.combatZone.cards.length - 1; i >= 0; i--) {
         this.game.myGame.combatZone.cards[i].resilience -= 1;
         this.checkForDamageMods(this.game.myGame.combatZone.cards[i], false);
@@ -3101,7 +3102,7 @@ export default {
       }
     },
 
-    x3m0TheEntwinedTurnStart() {
+    xmTheEntwinedTurnStart() {
       this.game.myGame.rep += 1;
       this.game.myGame.cache += 5;
     },
@@ -3712,6 +3713,7 @@ export default {
 
     this.game.deck = this.$store.state.selectedDeck.cards;
     this.shuffle(this.game.deck);
+    console.log("drawing hands...");
     this.drawCard();
     this.drawCard();
     this.drawCard();
@@ -4263,12 +4265,20 @@ export default {
   grid-template-columns: 10% 10% 10% 10% 10% 10% 30%;
   justify-content: center;
   align-items: center;
+
+}
+
+.zone-hand-cont {
+  grid-area: hand;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   background-image: linear-gradient(60deg,
       rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.7));
   border-radius: 10px;
   border: 1px solid black;
-  grid-area: hand;
+  /* grid-area: hand; */
   margin: 5px;
 }
 
