@@ -9,10 +9,25 @@ TODO project installation / environment setup
 
 ---
 
-## Card Game (formal title pending XD) is a head-to-head / player-vs-player strategy card game that plays out in real time
+## Card Game (formal title pending) is a player-vs-player strategy card game that plays out in real time
 ![alt text](screens/Sci-Fi%20Rebrand/home_small.png)
 
 ---
+
+## Players can browse the entire collection of cards and contracts that are avialable to them by selecting the **BROWSE** option
+
+* A variety of filters are available to the player so that they can look for specific cards, or cards that meet certain criteria
+
+![alt text](screens/Sci-Fi%20Rebrand/browse_small.png)
+
+*Viewing Troop cards*
+
+![alt text](screens/Sci-Fi%20Rebrand/browse_contracts_small.png)
+
+*Viewing contracts*
+
+---
+
 
 ## Players construct decks out of many different cards using the **DECK BUILDER** view
 
@@ -166,9 +181,66 @@ TODO project installation / environment setup
 
 ## **Contracts / Subroutines**
 
+<p>In the first version of **Card Game**, players did battle in a medieval setting with Knights, Soldiers, Ballistas, etc. Since then, Card Game has been rebranded to embrace a futuristic, Sci-Fi aesthetic. What were once called <b>Contracts</b> are now called <b>Subroutines</b>. There are some holdovers of the previous nomenclature that will be gradually phased out.</p>  
+
+* Subroutines that have been purchased are seen in the Active Subroutines section
+* Active Subroutines trigger at the beginning of the player's turn and produce some sort of effect
+* There are many types of Subroutines:
+    * Subroutines that produce additional resources
+    * Subroutines that create Troops
+    * Subroutines that interact with enemy troops
+    * Subroutines that interact with friendly troops
+    * Subroutines that generate card advantage (draw additional cards/subroutines)
 
 
+---
+
+## **Cards and Subroutines that ask the player to select a target**
+
+<p>Some Troop cards and some Subroutines will ask the player to select a target. The targeting system enables a different styling, highlighting available targets to the player. Other functionality is disabled at this time.</p>
+
+* Once the targeting mode has been activated, players must **right-click** on the target to select it
+* The targeting mode styling will vary, depending on whether a friendly or enemy troop is being targeted
 
 
+![alt text](screens/Sci-Fi%20Rebrand/arena_selecting_friendly_target_small.png)
+
+*Selecting a friendly target.*
 
 
+![alt text](screens/Sci-Fi%20Rebrand/arena_selecting_enemy_target_alt_small.png)
+
+*Selecting an enemy target.*
+
+---
+
+## Players battle until either **HQ** reaches 0, or either **Stability** reaches 0
+
+* When a player is victorious, a victory modal will appear
+* The same is true for defeat
+* Exiting the game will return the player to the Home screen
+
+![alt text](screens/Sci-Fi%20Rebrand/victory_modal_small.png)
+
+*Congrats! You are victorious!*
+
+![alt text](screens/Sci-Fi%20Rebrand/defeat_modal_small.png)
+
+*Better luck next time!*
+
+---
+
+## The best is yet to come
+
+**As Card Game continues to grow, there are a few things I want to see happen:**
+
+* The game logic is currently living in Vue, on the frontend. This needs to be moved to the server and be shared by the clients so that there is always continuity
+* Animations and sounds will give the game the level of immersion that gets me excited to play a game
+* The game itself is in need of refinement, particularly Factions and deck building restrictions
+
+<p>That is all I have for you now. A more technical ReadMe is in the works and will be forthcoming soon!</p>
+
+---
+
+
+# **Thanks for stopping by and reading about CARD GAME!**
