@@ -1,0 +1,165 @@
+<template>
+  <div class="tester">
+    <oppstatustile :game="this.game"/>
+  </div>
+</template>
+
+<script>
+import oppstatustile from "@/components/GameComponents/OppStatusTile.vue"
+
+export default {
+    data() {
+        return {
+      // GAME STATE  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      game: {
+        hand: [],
+        deck: [],
+        deadZone: [],
+        contracts: {
+          deck: [],
+          available: [],
+        },
+        hasAttacked: [],
+        choosingOppTargets: false,
+        choosingMyTargets: false,
+        oppFortAttack: false,
+        myFortAttack: false,
+        oppRepAttack: false,
+        myRepAttack: false,
+        myGame: {
+          updateRequest: false,
+          username: "Tester",
+          readyForBattle: false,
+          lastEvent: "",
+          directive: {
+            name: ""
+          },
+          concede: false,
+          rollPhase: false,
+          rollForFirst: 0,
+          goesFirst: false,
+          mulliganPhase: false,
+          keepHand: false,
+          keepContracts: false,
+          deckCount: 0,
+          handCount: 0,
+          turnSwitch: false,
+          turn: {
+            count: 0,
+            isTurn: true,
+            begin: false,
+            end: false,
+          },
+          attack: {
+            attacker: {},
+            target: {},
+            value: 0,
+            type: "",
+            isModded: false,
+            modValue: 0,
+          },
+          targetInitiator: "",
+          kill: 0,
+          fort: 40,
+          rep: 15,
+          cache: 10,
+          combatZone: {
+            cards: [],
+            mods: [],
+          },
+          contracts: {
+            active: [],
+            completed: [],
+            mods: [],
+          },
+          repGainMod: 0,
+          repLossMod: 0,
+          showOptions: false,
+          options: [
+            {
+              source: "",
+              isChosen: false,
+              text: "",
+            },
+            {
+              source: "",
+              isChosen: false,
+              text: "",
+            },
+            {
+              source: "",
+              isChosen: false,
+              text: "",
+            },
+            {
+              source: "",
+              isChosen: false,
+              text: "",
+            }
+          ]
+        },
+        oppGame: {
+          username: this.$store.state.game.oppGame.username,
+          lastEvent: "",
+          directive: {name: ""},
+          readyForBattle: false,
+          concede: false,
+          rollPhase: false,
+          rollForFirst: 0,
+          goesFirst: false,
+          mulliganPhase: false,
+          keepHand: false,
+          keepContracts: false,
+          turnSwitch: false,
+          turn: {
+            count: 0,
+            isTurn: false,
+            begin: false,
+            end: false,
+          },
+          attack: {
+            attacker: {},
+            target: {},
+            value: 0,
+            type: "",
+            isModded: false,
+            modValue: 0,
+          },
+          targetInitiator: "",
+          kill: 0,
+          fort: 40,
+          rep: 15,
+          cache: 10,
+          combatZone: {
+            cards: [],
+            mods: [],
+          },
+          contracts: {
+            active: [],
+            completed: [],
+            mods: [],
+          },
+          repGainMod: 0,
+          repLossMod: 0,
+        },
+      },
+      selectedDeck: {},
+      // LOADING / ERROR ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      isLoading: true,
+    };
+    },
+    components: {
+        oppstatustile
+    },
+}
+</script>
+
+<style>
+.tester {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+</style>

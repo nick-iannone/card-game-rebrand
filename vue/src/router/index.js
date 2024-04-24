@@ -11,6 +11,7 @@ import MyDecks from '../views/MyDecks.vue'
 import DeckBuilder from '../views/DeckBuilder.vue'
 import FindMatch from '../views/FindMatch.vue'
 import GameSetup from '../views/GameSetup.vue'
+import Tester from '../views/Tester.vue'
 
 Vue.use(Router)
 
@@ -112,6 +113,15 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false,
+        requiresOpponent: false,
+      }
+    },
+    {
+      path: '/tester',
+      name: 'tester',
+      component: Tester,
       meta: {
         requiresAuth: false,
         requiresOpponent: false,

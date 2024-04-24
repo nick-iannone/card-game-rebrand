@@ -171,11 +171,11 @@ VALUES ('Call in the Ringer', '20', 'At the beginning of your turn, draw a Fable
 INSERT INTO contracts (name, cost, text, duration, age, is_active) 
 VALUES ('I Know A Guy', '10', 'At the beginning of your turn, draw a Heroic or Vile troop from your deck.', 1, 0, false);
 INSERT INTO contracts (name, cost, text, duration, age, is_active, has_counters) 
-VALUES ('Spread-Missle Attack', '20', 'At the beginning of your turn put a missile counter on this, then deal 2 damage to enemy troops for each missile counter.', 2, 0, false, true);
+VALUES ('Spread Missile Attack', '20', 'At the beginning of your turn put a missile counter on this, then deal 2 damage to enemy troops for each missile counter.', 2, 0, false, true);
 INSERT INTO contracts (name, cost, text, duration, age, is_active) 
 VALUES ('Ceasefire', '30', E'At the beginning of your turn, return all troops to their owners\' hands and increase each player\'s Stability by 2.', 1, 0, false);
 INSERT INTO contracts (name, cost, text, duration, age, is_active) 
-VALUES ('Stimulus Package', '10', 'At the beginning of your turn, put an aid counter on this. At 1 counter create a 2/2/2 Soldier. At 2, gain 10 gold. At 3, restore 5 integrity and gain 2 reputation.', 3, 0, true);
+VALUES ('Stimulus Package', '10', 'At the beginning of your turn, put an aid counter on this. At 1 counter create a 2/2/2 Soldier. At 2, gain 10 credits. At 3, restore 5 Integrity and gain 2 Stability.', 3, 0, true);
 
 CREATE TABLE decks_contracts (
         deck_id int,
@@ -237,7 +237,7 @@ VALUES ('Delta Trooper', '10', 'empowered.jpg', 'Readiness. When this enters, de
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter, is_vile)
 VALUES ('Single-Target Specialist', '20', 'assassin.jpg', 'When this enters, destroy an enemy troop.', 3, 1, 2, true, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, can_attack, on_enter, on_leave, on_attack, is_fabled)
-VALUES ('Merek, Renegade Icon', '15', 'space_pirate.jpg', 'Readiness. When this enters, attacks, or dies, gain 5 coins.', 1, 4, 3, true, true, true, true, true);
+VALUES ('Merek, Renegade Icon', '15', 'space_pirate.jpg', 'Readiness. When this enters, attacks, or dies, gain 5 credits.', 1, 4, 3, true, true, true, true, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)
 VALUES ('Brute Bot', '15', 'dread_leader.jpg', E'When this enters, reduce an enemy troop\'s attack, resilience, and loyalty by 1.', 4, 4, 2, true);
 INSERT INTO cards (name, cost, image, abilities, attack, resilience, loyalty, on_enter)

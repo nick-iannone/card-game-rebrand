@@ -3742,8 +3742,8 @@ export default {
   grid-template-areas:
     "opp-status opp-zone opp-zone enemy-contracts"
     "options game-info game-info turn-button"
-    "my-status my-zone my-zone contracts-active"
-    "dead deck hand contracts";
+    "avatar-panel my-zone my-zone contracts-active"
+    "my-status deck hand contracts";
 
   background-image: url("../assets/backgrounds/ships.jpg");
 }
@@ -3776,82 +3776,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   grid-area: turn-button;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 5px;
-}
-
-.status-div {
-  color: rgb(223, 223, 223);
-  font-family: "Orbitron";
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  padding: 5px 20px 5px 20px;
-}
-
-.status-fortress {
-  color: rgb(223, 223, 223);
-  font-family: "Orbitron";
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  padding: 5px 20px 5px 20px;
-}
-
-.status-fortress:hover {
-  cursor: pointer;
-}
-
-.status-damage {
-  animation-name: statusDamage;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  color: rgb(223, 223, 223);
-  font-family: "Orbitron";
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  padding: 5px 20px 5px 20px;
-}
-
-@keyframes statusDamage {
-  0% {
-    transform: translate(0, 0px);
-  }
-
-  10% {
-    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
-      3px 0 4px rgb(165, 24, 24);
-    transform: translate(2px, -2px);
-    transform: rotate(2deg);
-  }
-
-  20% {
-    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
-      3px 0 4px rgb(165, 24, 24);
-    transform: translate(-2px, 2px);
-    transform: rotate(2deg);
-  }
-
-  40% {
-    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
-      3px 0 4px rgb(165, 24, 24);
-    transform: translate(-1px, 1px);
-    transform: rotate(-1deg);
-  }
-
-  70% {
-    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
-      3px 0 4px rgb(165, 24, 24);
-    transform: translate(1px, -1px);
-    transform: rotate(1deg);
-  }
-
-  100% {
-    transform: translate(0, -0px);
-  }
+  margin: 0px 10px 0px 10px;
 }
 
 .status-div-my-username {
@@ -3899,40 +3824,6 @@ export default {
   border: 1px solid rgb(43, 43, 43);
   height: 100%;
   width: 100%;
-}
-
-.opparea {
-  border: 1px solid rgb(43, 43, 43);
-  margin: 5px;
-  gap: 5px;
-  height: 400px;
-  width: 250px;
-  border-radius: 10px;
-  background-image: linear-gradient(60deg,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7));
-  grid-area: opp-status;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.oppareaturn {
-  border: 1px solid rgb(0, 224, 67);
-  margin: 5px;
-  gap: 5px;
-  height: 400px;
-  width: 250px;
-  border-radius: 10px;
-  background-image: linear-gradient(60deg,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7));
-  grid-area: opp-status;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: 0 0 10px rgb(62, 255, 126), -3px 0 4px rgb(0, 150, 32),
-    3px 0 4px rgb(62, 255, 104);
 }
 
 .loader {
@@ -4219,47 +4110,6 @@ export default {
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
 }
 
-.myarea {
-  border: 1px solid rgb(43, 43, 43);
-  margin: 5px;
-  gap: 5px;
-  height: 400px;
-  width: 250px;
-  border-radius: 10px;
-  background-image: linear-gradient(60deg,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7));
-  grid-area: my-status;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.myareaturn {
-  border: 1px solid rgb(0, 224, 67);
-  margin: 5px;
-  gap: 5px;
-  height: 400px;
-  width: 250px;
-  border-radius: 10px;
-  background-image: linear-gradient(60deg,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7));
-  grid-area: my-status;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: 0 0 10px rgb(62, 255, 126), -3px 0 4px rgb(0, 150, 32),
-    3px 0 4px rgb(62, 255, 104);
-}
-
-.player-area {
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  justify-content: space-evenly;
-}
-
 .zone-hand {
   display: grid;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 30%;
@@ -4278,7 +4128,6 @@ export default {
       rgba(0, 0, 0, 0.7));
   border-radius: 10px;
   border: 1px solid black;
-  /* grid-area: hand; */
   margin: 5px;
 }
 
@@ -4306,14 +4155,14 @@ export default {
   cursor: pointer;
 }
 
-.dead-zone {
+/* .dead-zone {
   min-height: 200px;
   min-width: 180px;
   padding: 10px 10px 10px 10px;
   display: grid;
   grid-template-rows: 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px 8px;
   justify-items: center;
-}
+} */
 
 .cont-cont-av {
   background-image: url("../assets/textures/egg-shell.png"),
@@ -4411,30 +4260,6 @@ export default {
 
 .contractable:hover {
   box-shadow: -5px 0 5px rgb(18, 128, 218), 5px 0 5px rgb(116, 142, 255);
-}
-
-.icon-arena {
-  margin-right: 20px;
-}
-
-.icon-arena-cont {
-  margin-right: 20px;
-  color: rgb(40, 135, 230);
-}
-
-.icon-arena-rep {
-  margin-right: 20px;
-  color: rgb(0, 252, 84);
-}
-
-.icon-arena-deck {
-  margin-right: 20px;
-  color: rgb(228, 52, 52);
-}
-
-.icon-arena-hand {
-  margin-right: 20px;
-  color: rgb(46, 171, 175);
 }
 
 .mulligan-prompt {
@@ -4708,4 +4533,48 @@ export default {
   background-image: url("../assets/textures/egg-shell.png"),
     linear-gradient(60deg, rgba(11, 160, 123, 0.8), rgba(11, 160, 123, 0.8));
 }
+
+@keyframes statusDamage {
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  10% {
+    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
+      3px 0 4px rgb(165, 24, 24);
+    background-color: red;
+    transform: translate(2px, -2px);
+    transform: rotate(2deg);
+  }
+
+  20% {
+    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
+      3px 0 4px rgb(165, 24, 24);
+    background-color: red;
+    transform: translate(-2px, 2px);
+    transform: rotate(2deg);
+  }
+
+  40% {
+    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
+      3px 0 4px rgb(165, 24, 24);
+    background-color: red;
+    transform: translate(-1px, 1px);
+    transform: rotate(-1deg);
+  }
+
+  70% {
+    box-shadow: 0 0 10px rgb(255, 63, 63), -3px 0 4px rgb(255, 35, 35),
+      3px 0 4px rgb(165, 24, 24);
+    background-color: red;
+    transform: translate(1px, -1px);
+    transform: rotate(1deg);
+  }
+
+  100% {
+    background-color: red;
+    transform: translate(0, -0px);
+  }
+}
+
 </style>

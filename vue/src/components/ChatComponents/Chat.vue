@@ -95,9 +95,9 @@
 <script>
 import SockJS from "sockjs-client";
 import Stomp from "webstomp-client";
-import ChatService from "../services/ChatService.js";
-import ChatMessage from "@/components/ChatMessage.vue";
-import ChatTextInput from "@/components/ChatTextInput.vue";
+import ChatService from "../../services/ChatService.js";
+import ChatMessage from "@/components/ChatComponents/ChatMessage.vue";
+import ChatTextInput from "@/components/ChatComponents/ChatTextInput.vue";
 
 export default {
   name: "chat",

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Chat from "@/components/Chat.vue";
+import Chat from "@/components/ChatComponents/Chat.vue";
 
 export default {
   name: "the-header",

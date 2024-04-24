@@ -36,7 +36,7 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener("beforeunload", this.leaving);
+    window.addEventListener("beforeunload", this.leaving());
   }
 }
 </script>
