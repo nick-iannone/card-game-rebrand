@@ -30,7 +30,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgb(43, 43, 43);
+    border: 1px solid rgba(160, 159, 159, 0.603);
     margin: 5px;
     gap: 5px;
     height: 399px;

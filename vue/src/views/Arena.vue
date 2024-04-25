@@ -3779,22 +3779,6 @@ export default {
   align-self: center;
 }
 
-
-
-.status-div-opp-username {
-  color: rgb(255, 255, 255);
-  font-family: "Orbitron";
-  font-size: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px 0px 2px 0px;
-  border: 1px solid rgb(151, 151, 151);
-  border-radius: 15px;
-  margin: 0px 5px 0px 5px;
-  background-image: linear-gradient(180deg, rgb(39, 0, 0), rgb(160, 0, 0));
-}
-
 .opp-zone {
   grid-area: opp-zone;
   display: flex;

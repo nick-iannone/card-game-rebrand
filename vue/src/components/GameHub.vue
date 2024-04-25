@@ -33,7 +33,7 @@ export default {
     },
     rotate(newMessage) {
       if (newMessage != "") {
-        if (this.items.length < 4) {
+        if (this.items.length < 8) {
           let prependId = this.id.toString();
           newMessage = prependId + newMessage;
           this.id++;
@@ -63,6 +63,11 @@ export default {
   flex-direction: row;
   align-items: center;
   width: 40%;
+  height: 100%;
+  background-color: rgba(0, 8, 31, 0.534);
+  padding-bottom: 3px;
+  padding-left: 2px;
+  border-radius: 5px;
 }
 
 .slide-cont {
@@ -90,8 +95,9 @@ export default {
 }
 
 .feed-icon {
-  font-size: 30px;
-  padding: 5px 10px 5px 5px;
+  font-size: 26px;
+  padding: 0px 10px 0px 0px;
+  margin-top: -2px;
 }
 
 .feed-text {
@@ -102,18 +108,18 @@ export default {
 .list-complete-item {
   transition: all 0.5s;
   vertical-align: middle;
-  display: inline-block;
+  display: inline-flex;
   margin-right: 20px;
   margin-top: 3px;
   color: rgb(255, 255, 255);
   font-family: "Bai Jamjuree";
-  font-size: 25px;
+  font-size: 15px;
   background-color: rgba(5, 5, 5, 0.863);
   border: 1px solid rgba(194, 194, 194, 0.616);
   border-radius: 8px;
-  padding: 5px;
-  width: 40px;
-  height: 38px;
+  padding: 5px 10px 5px 5px;
+  width: 22px;
+  height: 24px;
   overflow: hidden;
 }
 
@@ -121,7 +127,7 @@ export default {
   width: auto;
   overflow: visible;
   height: auto;
-  width: 200px;
+  width: auto;
   z-index: 100;
   position: relative;
 }

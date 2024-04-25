@@ -1,11 +1,11 @@
 <template>
   <div class="tester">
-    <avatar />
+    <oppstatustile :game="game"/>
   </div>
 </template>
 
 <script>
-import avatar from "@/components/GameComponents/Avatar.vue"
+import oppstatustile from "@/components/GameComponents/OppStatusTile.vue"
 
 export default {
     data() {
@@ -150,7 +150,7 @@ export default {
     };
     },
     components: {
-        avatar
+        oppstatustile
     },
 }
 </script>
