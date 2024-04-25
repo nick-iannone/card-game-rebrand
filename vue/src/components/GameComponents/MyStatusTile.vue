@@ -61,16 +61,16 @@ export default {
   gap: 5px;
   
   display: grid;
-  grid-template-rows: 118px 78px;
+  grid-template-rows: 118px 73px;
   grid-template-columns: 123px 123px;
-  row-gap: 4px;
+  row-gap: 2px;
   column-gap: 4px;
   grid-template-areas:
     "avatar-hp resources"
     "rep counts"
   ;
 
-  height: 200px;
+  height: 195px;
   width: 250px;
   
   margin: 5px;
@@ -90,7 +90,7 @@ export default {
     "rep counts"
   ;
 
-  height: 200px;
+  height: 195px;
   width: 250px;
   
   margin: 5px;
@@ -210,7 +210,7 @@ padding: 5px;
 }
 .icon-arena-rep {
   color: rgb(148, 113, 229);
-  font-size: 28px;
+  font-size: 24px;
 }
 .status-rep-damage {
   animation-name: statusDamage;

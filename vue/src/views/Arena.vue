@@ -8,26 +8,27 @@
         <exit-modal v-on:exitGame="runAway" />
       </div>
       <div class="game-info-hub">
-        <gamehub ref="gameHub" />
-      </div>
-      <div class="turn-button">
+        <div class="turn-button">
         <button class="exit-btn" @click="endTurn">END TURN</button>
       </div>
-
+        <gamehub ref="gameHub" />
+      </div>
+      
       <mystatustile :game='game' />
       <mycombatzone :game='game' @determineContextBehaviorFriendly="determineContextBehaviorFriendly"
         @checkCardPurchase='checkCardPurchase' />
       <pregame :isLoading='isLoading' :game='game' @roll='roll' @keepHand='keepHand' @mulliganHand='mulliganHand'
         @keepContracts='keepContracts' @mulliganContracts='mulliganContracts' @determineOutcome="determineOutcome" />
-      <myhand :game="game" />
+        
+        <myhand :game="game" />
 
       <div class="deck">
         <img v-if="this.game.deck.length > 0" class="deck-img" src="../assets/icons/card_back.png" />
       </div>
-
-      <oppactivecontracts :game='game' />
-      <myactivecontracts :game="game" @checkContPurchase="checkContPurchase" />
-      <myavailablecontracts :game="game" />
+      
+      
+      <shop />
+      <avatar />
     </div>
 
     <modal name="choose-one-modal" v-if="showOptions" height="325px" width="500px"
@@ -73,9 +74,8 @@ import mystatustile from "@/components/GameComponents/MyStatusTile.vue";
 import pregame from "@/components/GameComponents/PreGame.vue";
 import oppcombatzone from "@/components/GameComponents/OppCombatZone.vue";
 import myhand from "@/components/GameComponents/MyHand.vue";
-import oppactivecontracts from "@/components/GameComponents/OppActiveContracts.vue";
-import myactivecontracts from "@/components/GameComponents/MyActiveContracts.vue";
-import myavailablecontracts from "@/components/GameComponents/MyAvailableContracts.vue";
+import shop from "@/components/GameComponents/Shop.vue";
+import avatar from "@/components/GameComponents/Avatar.vue";
 
 export default {
   data() {
@@ -229,9 +229,8 @@ export default {
     pregame,
     oppcombatzone,
     myhand,
-    oppactivecontracts,
-    myactivecontracts,
-    myavailablecontracts,
+    shop,
+    avatar,
   },
 
   // COMPUTED  CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
@@ -3736,18 +3735,20 @@ export default {
 .arena {
   display: grid;
   grid-template-rows: 400px 49px 400px 200px;
-  grid-template-columns: 250px 200px 1080px 360px;
+  grid-template-columns: 250px 1080px 200px 360px;
   row-gap: 3px;
   column-gap: 5px;
   grid-template-areas:
-    "opp-status opp-zone opp-zone enemy-contracts"
-    "options game-info game-info turn-button"
-    "avatar-panel my-zone my-zone contracts-active"
-    "my-status deck hand contracts";
+    "opp-status opp-zone opp-zone shop"
+    "options game-info game-info shop"
+    "avatar my-zone my-zone shop"
+    "my-status hand deck dead-zone";
 
   background-image: url("../assets/backgrounds/ships.jpg");
 }
-
+/* .avatar-cont {
+  grid-area: "avatar";
+} */
 .options {
   display: flex;
   flex-direction: row;
@@ -3775,23 +3776,10 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  grid-area: turn-button;
-  margin: 0px 10px 0px 10px;
+  align-self: center;
 }
 
-.status-div-my-username {
-  color: rgb(255, 255, 255);
-  font-family: "Orbitron";
-  font-size: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 0px 2px 0px;
-  border: 1px solid rgb(151, 151, 151);
-  border-radius: 5px;
-  margin: 0px 5px 0px 5px;
-  background-image: linear-gradient(180deg, rgb(0, 26, 39), rgb(20, 164, 220));
-}
+
 
 .status-div-opp-username {
   color: rgb(255, 255, 255);
@@ -4156,6 +4144,7 @@ export default {
 }
 
 /* .dead-zone {
+  grid-area: "dead-zone";
   min-height: 200px;
   min-width: 180px;
   padding: 10px 10px 10px 10px;
@@ -4248,7 +4237,6 @@ export default {
   box-shadow: 0 0 10px #fff, -3px 0 4px rgb(255, 240, 35),
     3px 0 4px rgb(255, 240, 35);
 }
-
 .castable:hover {
   box-shadow: 0 0 10px #fff, -3px 0 4px rgb(255, 240, 35),
     3px 0 4px rgb(255, 240, 35);
@@ -4257,7 +4245,6 @@ export default {
 .contractable {
   box-shadow: -5px 0 5px rgb(18, 128, 218), 5px 0 5px rgb(116, 142, 255);
 }
-
 .contractable:hover {
   box-shadow: -5px 0 5px rgb(18, 128, 218), 5px 0 5px rgb(116, 142, 255);
 }
@@ -4277,12 +4264,10 @@ export default {
   box-shadow: 0 0 5px 5px rgb(255, 43, 43), 0 0 5px 5px rgb(255, 255, 255),
     0 0 5px 5px rgb(255, 0, 0);
 }
-
 .attacking:hover {
   box-shadow: 0 0 5px 5px rgb(255, 43, 43), 0 0 5px 5px rgb(255, 255, 255),
     0 0 5px 5px rgb(255, 0, 0);
 }
-
 @keyframes attacking {
   0% {
     transform: translate(0, 0px);
@@ -4306,7 +4291,6 @@ export default {
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
 }
-
 @keyframes target {
   0% {
     box-shadow: 0 0 5px 5px rgb(43, 100, 255), 0 0 5px 5px rgb(255, 255, 255),
@@ -4353,7 +4337,6 @@ export default {
   box-shadow: 0 0 5px 5px rgb(0, 143, 76), 0 0 5px 5px rgb(255, 255, 255),
     0 0 5px 5px rgb(0, 73, 39);
 }
-
 .canattack:hover {
   box-shadow: 0 0 5px 5px rgb(0, 143, 76), 0 0 5px 5px rgb(255, 255, 255),
     0 0 5px 5px rgb(0, 73, 39);
@@ -4367,14 +4350,12 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .vic-modal-header {
   font-family: "Orbitron";
   font-size: 70px;
   color: white;
   text-shadow: 2px 2px rgb(88, 88, 88);
 }
-
 .vic-modal-prompt {
   color: white;
   font-family: "Bai Jamjuree";
@@ -4398,7 +4379,6 @@ export default {
   padding: 0px 10px 0px 10px;
   margin: 2px 10px 2px 0px;
 }
-
 .exit-btn:hover {
   cursor: pointer;
   background-color: rgba(190, 0, 0, 0.9);
@@ -4413,12 +4393,10 @@ export default {
   box-shadow: 0 0 3px 3px rgb(255, 225, 1), 0 0 3px 3px rgb(255, 255, 255),
     0 0 3px 3px rgb(255, 246, 120);
 }
-
 .hallowed:hover {
   box-shadow: 0 0 3px 3px rgb(255, 225, 1), 0 0 3px 3px rgb(255, 255, 255),
     0 0 3px 3px rgb(255, 246, 120);
 }
-
 @keyframes hallowed {
   20% {
     box-shadow: 0 0 3px 3px rgb(192, 175, 45), 0 0 3px 3px rgb(255, 233, 66),
@@ -4450,12 +4428,10 @@ export default {
   box-shadow: 0 0 2px 2px rgb(1, 81, 157), 0 0 2px 2px rgb(61, 117, 177),
     0 0 2px 2px rgb(5, 18, 92);
 }
-
 .fabled:hover {
   box-shadow: 0 0 2px 2px rgb(1, 81, 157), 0 0 2px 2px rgb(61, 117, 177),
     0 0 2px 2px rgb(5, 18, 92);
 }
-
 @keyframes fabled {
   20% {
     box-shadow: 0 0 2px 2px rgb(0, 96, 186), 0 0 2px 2px rgb(67, 117, 172),
@@ -4487,12 +4463,10 @@ export default {
   box-shadow: 0 0 1px 1px rgb(255, 72, 240), 0 0 1px 1px rgb(196, 214, 235),
     0 0 1px 1px rgb(78, 5, 92);
 }
-
 .heroic:hover {
   box-shadow: 0 0 1px 1px rgb(255, 72, 240), 0 0 1px 1px rgb(196, 214, 235),
     0 0 1px 1px rgb(78, 5, 92);
 }
-
 @keyframes heroic {
   20% {
     box-shadow: 0 0 1px 1px rgb(201, 42, 188), 0 0 1px 1px rgb(191, 203, 216),
@@ -4514,6 +4488,7 @@ export default {
       0 0 1px 1px rgb(75, 5, 89);
   }
 }
+
 .option-cont {
   border: 1 px solid white;
   border-radius: 8px;

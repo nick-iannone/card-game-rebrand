@@ -63,7 +63,7 @@ export default {
   gap: 5px;
   
   display: grid;
-  grid-template-rows: 78px 118px;
+  grid-template-rows: 73px 118px;
   grid-template-columns: 123px 123px;
   row-gap: 4px;
   column-gap: 4px;
@@ -72,7 +72,7 @@ export default {
     "opp-avatar-hp opp-resources"
   ;
 
-  height: 200px;
+  height: 195px;
   width: 250px;
   
   margin: 5px;
@@ -82,7 +82,7 @@ export default {
   gap: 5px;
   
   display: grid;
-  grid-template-rows: 78px 118px;
+  grid-template-rows: 73px 118px;
   grid-template-columns: 123px 123px;
   row-gap: 4px;
   column-gap: 4px;
@@ -91,7 +91,7 @@ export default {
     "opp-avatar-hp opp-resources"
   ;
 
-  height: 200px;
+  height: 195px;
   width: 250px;
   
   margin: 5px;

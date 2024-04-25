@@ -1,11 +1,11 @@
 <template>
   <div class="tester">
-    <oppstatustile :game="this.game"/>
+    <avatar />
   </div>
 </template>
 
 <script>
-import oppstatustile from "@/components/GameComponents/OppStatusTile.vue"
+import avatar from "@/components/GameComponents/Avatar.vue"
 
 export default {
     data() {
@@ -28,7 +28,7 @@ export default {
         myRepAttack: false,
         myGame: {
           updateRequest: false,
-          username: "Tester",
+          username: "TESTER",
           readyForBattle: false,
           lastEvent: "",
           directive: {
@@ -143,13 +143,14 @@ export default {
           repLossMod: 0,
         },
       },
+      shop: {},
       selectedDeck: {},
       // LOADING / ERROR ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       isLoading: true,
     };
     },
     components: {
-        oppstatustile
+        avatar
     },
 }
 </script>
