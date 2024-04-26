@@ -1,19 +1,23 @@
 <template>
   <div class="shop">
-    <div class="shop-header">STOREFRONT</div>
-    <itemrow />
-    <itemrow />
+    <div class="shop-header"><span class="material-symbols-outlined">
+credit_card_heart
+</span>SH0P</div>
+    <availableupgrades />
+    <availableboons />
     <shopcards />
   </div>
 </template>
 
 <script>
-import itemrow from "@/components/GameComponents/ItemRow.vue";
+import availableupgrades from "@/components/GameComponents/AvailableUpgrades.vue";
 import shopcards from "@/components/GameComponents/ShopCards.vue";
+import availableboons from "@/components/GameComponents/AvailableBoons.vue";
 
 export default {
     components: {
-        itemrow,
+      availableboons,
+      availableupgrades,
         shopcards
     },
 }
@@ -26,7 +30,7 @@ export default {
     /* display: grid; */
     width: 350px;
     height: 854px;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.825), rgba(38, 2, 85, 0.797), rgba(0, 0, 0, 0.808));
+    background-image: url("../../assets/textures/beige-paper.png"), linear-gradient(90deg, rgb(0, 0, 0), rgb(19, 11, 50), rgb(65, 17, 75), rgb(0, 0, 0));
     border: 1px solid rgba(71, 71, 71, 0.345);
     border-radius: 5px;
     margin: 5px;
@@ -36,14 +40,25 @@ export default {
     align-items: center;
 }
 .shop-header {
-    color: white;
-    font-size: 28px;
-    font-weight: 700;
-    font-family: 'Orbitron', sans-serif;
-    padding: 5px 13px 3px 13px;
+    color: rgb(255, 255, 255);
+    font-size: 62px;
+    font-weight: 900;
+    font-family: "Sixtyfour";
+    padding: 15px 13px 3px 0px;
     text-align: center;
-    letter-spacing: 10px;
-    text-shadow: 1px 3px rgba(139, 64, 252, 0.813);
+    letter-spacing: 0px;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.34);
+    background: -webkit-linear-gradient(rgb(243, 243, 243), rgb(241, 221, 3), rgb(255, 224, 87), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.material-symbols-outlined {
+  font-size: 50px;
+}
+.icon-arena-resource-shop {
+  height: 60px;
 }
 
 </style>

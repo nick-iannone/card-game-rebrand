@@ -3733,6 +3733,7 @@ export default {
 
 <style>
 .arena {
+  cursor: pointer;
   display: grid;
   grid-template-rows: 400px 49px 400px 200px;
   grid-template-columns: 250px 1080px 200px 360px;
