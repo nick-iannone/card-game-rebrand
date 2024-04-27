@@ -1,11 +1,11 @@
 <template>
   <div class="tester">
-    <tile :card="card"/>
+    <cardnew :card="card"/>
   </div>
 </template>
 
 <script>
-import tile from "@/components/Tile.vue"
+import cardnew from "@/components/CardNew.vue"
 
 export default {
     data() {
@@ -148,7 +148,7 @@ export default {
         name: "Guy Soldier",
         cost: 2,
         type: "Troop - Human",
-        imageName: "soldierguy.jpeg",
+        image: "soldierguy.jpeg",
         text1: "Recyclable",
         text2: "When you recycle this, give a friendly troop +1/+1.",
         text3: "",
@@ -164,7 +164,7 @@ export default {
     };
     },
     components: {
-      tile
+      cardnew
     },
 }
 </script>

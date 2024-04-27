@@ -8,24 +8,24 @@
             <div class="shop-row-me">
                 <div class="shop-cont-cost">
                     {{ card.cost
-                    }}<font-awesome-icon :icon="['fa', 'coins']" class="icon" color="yellow" />
+                    }}<font-awesome-icon :icon="['fa', 'coins']" class="new-cost-icon" color="yellow" />
                 </div>
             </div>
-            <div class="shop-dropdown-content-active" v-if="this.card.abilities != null">
-                <card :card=card />
+            <div class="shop-dropdown-content-active" >
+                <cardnew :card=card />
             </div>
         </div>
     </div>
 </template>
   
 <script>
-import card from "../../components/Card.vue";
+import cardnew from "../CardNew.vue";
 
 export default {
     name: "shopcardtile",
     props: ["card"],
     components: {
-        card
+        cardnew
     },
     methods: {
         getImageURL(pic) {
@@ -64,10 +64,11 @@ export default {
 }
 
 .shop-card-tile-row {
-    background-image: url("../../assets/textures/egg-shell.png"),
-        linear-gradient(to right, rgb(4, 39, 67), rgb(18, 33, 41));
+    background-image: url("../../assets/textures/3px-tile.png"),
+        linear-gradient(to right, rgb(0, 0, 0), rgb(4, 59, 77), rgb(0, 0, 0));
+        /* background-size: 100%; */
     border-radius: 5px;
-    border: 1px solid rgba(179, 179, 179, 0.422);
+    border: 1px solid rgba(255, 255, 255, 0.679);
     width: 96%;
     height: 40px;
     display: flex;
@@ -111,6 +112,11 @@ export default {
     color: white;
     font-family: 'Bai Jamjuree', sans-serif;
 
+}
+
+.new-cost-icon {
+  font-size: 20px;
+  margin-left: 4px;
 }
 
 .icon-shop-row {
