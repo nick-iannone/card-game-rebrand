@@ -120,7 +120,7 @@
         :disableDefaultStyles="true"
         :items="filteredList"
         @changePage="onChangePage"
-        :pageSize="8"
+        :pageSize="10"
       ></jw-pagination>
     </div>
     

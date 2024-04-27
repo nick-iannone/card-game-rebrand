@@ -1,7 +1,7 @@
 <template>
   <div :class="determineRarity(card)">
     <div class="card-header">
-      <div id="card-title" :class="cardNameClass(card)">{{ card.name }}</div>
+      <div id="card-title" :style="this.card.name.length > 15 ? 'fontSize: 11px' : 'fontSize: 15px'" :class="cardNameClass(card)">{{ card.name }}</div>
       
     </div>
     <div

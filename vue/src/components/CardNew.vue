@@ -13,13 +13,15 @@
 
     <div class="image-cont-new">
       <img class="image-new" v-bind:src="getImageURL(card.image)" />
-      <div class="equip-slot-1" ></div>
-      <div class="equip-slot-2" ></div>
+      <div id="equip-slot" class="equip-slot-1" ></div>
+      <div id="equip-slot" class="equip-slot-2" ></div>
+      <div id="equip-slot" class="equip-slot-3" ></div>
+      <div id="equip-slot" class="equip-slot-4" ></div>
       <div class="card-desc-new"  >
-        <div class="text">
+        <div class="text" :style="this.card.text1 == 'Recyclable' || this.card.text1 == 'Readiness' ? 'fontWeight: 700':'fontWeight: 500'">
         {{ card.text1 }}
         </div>
-        <div class="text">
+        <div class="text" :style="this.card.text2 == 'Recyclable' || this.card.text2 == 'Readiness' ? 'fontWeight: 700':'fontWeight: 500'">
         {{ card.text2 }}
         </div>
         <div class="text">
@@ -42,10 +44,10 @@
           color="yellow"
         />
         </div>
-        <div class="attr-attack-new">
+        <div id="attr" class="attr-attack-new">
           {{ card.attack }}
         </div>
-        <div class="attr-resilience-new">
+        <div id="attr" class="attr-resilience-new">
           {{ card.resilience }}
         </div>
     </div>
@@ -91,6 +93,8 @@ export default {
   transform: scale(1.03);
   cursor: pointer;
 }
+
+
 .card-header-new {
   display: flex;
   flex-direction: row;
@@ -140,6 +144,8 @@ export default {
   transform: scale(1.4);
   cursor: pointer;
 }
+
+
 .type-row-new {
   display: flex;
   flex-direction: row;
@@ -155,10 +161,9 @@ export default {
   border-radius: 4px;
   padding: 0px 2px 0px 2px;
   background-image: linear-gradient(rgb(55, 0, 111), rgb(0, 0, 0));
-  transition: all 0.2s ease-in-out;
-  align-self: flex-start;
-
 }
+
+
 .image-new {
   border-radius: 5px;
   overflow: hidden;
@@ -171,27 +176,41 @@ export default {
   position: relative;
   border: 1px solid white;
   border-radius: 5px;
-  
+}
+
+
+#equip-slot {
+  position: absolute;
+  border: 1.5px solid rgba(183, 183, 183, 0.61);
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, .400), rgb(0, 0, 0, .400))
 }
 .equip-slot-1 {
-  position: absolute;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: 1.5px solid rgb(183, 183, 183);
-  height: 60px;
-  width: 60px;
   top: 0%;
 }
 .equip-slot-2 {
-  position: absolute;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  border: 1.5px solid rgb(183, 183, 183);
-  height: 60px;
-  width: 60px;
   top: 0%;
-  left: 69%;
+  left: 74%;
 }
+.equip-slot-3 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  top: 26%;
+  right: 74%;
+}
+.equip-slot-4 {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: 26%;
+  left: 74%;
+}
+
+
 .card-desc-new {
   position: absolute;
   bottom: 0%;
@@ -223,6 +242,8 @@ export default {
   border:1px solid white;
   border-radius: 5px;
 }
+
+
 .card-attr-new {
   display: flex;
   flex-direction: row;
@@ -231,7 +252,7 @@ export default {
   width: 100%;
   margin: 4px 0px -3px 0px;
 }
-.attr-attack-new {
+#attr {
   color: white;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
@@ -241,13 +262,15 @@ export default {
   justify-content: center;
   text-align: center;
   align-content: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+.attr-attack-new {
   background-image: linear-gradient(
     180deg,
     rgb(180, 4, 4),
     rgb(101, 0, 0)
   );
-  transition: all 0.2s ease-in-out;
-  border-radius: 5px;
 }
 .attr-attack-new:hover {
   transform: scale(1.4);
@@ -258,28 +281,19 @@ export default {
   );
 }
 .attr-resilience-new {
-  color: white;
-  font-weight: 600;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 25px;
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  align-content: center;
   background-image: linear-gradient(
     180deg,
-    rgba(0, 148, 67, 0.873),
-    rgba(0, 74, 33, 0.889)
+    rgba(0, 148, 67, 1),
+    rgba(0, 74, 33, 1)
   );
-  transition: all 0.2s ease-in-out;
-  border-radius: 5px;
 }
 .attr-resilience-new:hover {
   transform: scale(1.4);
   background-image: linear-gradient(
     60deg,
-    rgba(0, 148, 67, 0.873),
-    rgba(0, 74, 33, 0.889)
+    rgba(0, 148, 67, 1),
+    rgba(0, 74, 33, 1)
   );
 }
+
 </style>
