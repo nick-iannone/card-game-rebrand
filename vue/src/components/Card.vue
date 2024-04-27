@@ -1,15 +1,8 @@
 <template>
   <div :class="determineRarity(card)">
     <div class="card-header">
-      <div :class="cardNameClass(card)">{{ card.name }}</div>
-      <div class="card-cost" v-if="card.cost > 0">
-        {{ card.cost }}
-        <font-awesome-icon
-          :icon="['fa', 'coins']"
-          class="icon"
-          color="yellow"
-        />
-      </div>
+      <div id="card-title" :class="cardNameClass(card)">{{ card.name }}</div>
+      
     </div>
     <div
       :class="determineImageBorder(card)"
@@ -25,19 +18,23 @@
           {{ card.flavor }}
         </div>
       </div>
-
+      
       <div class="card-attr">
-        <div class="attribute">
+        <div class="card-cost" v-if="card.cost > 0">
+        {{ card.cost }}
+        <font-awesome-icon
+          :icon="['fa', 'coins']"
+          class="icon"
+          color="yellow"
+        />
+      </div>
+        <div class="attribute-attack">
           {{ card.attack }}
-          <p id="attr-desc">Attack</p>
+          
         </div>
-        <div class="attribute">
+        <div class="attribute-resilience">
           {{ card.resilience }}
-          <p id="attr-desc">Resilience</p>
-        </div>
-        <div class="attribute">
-          {{ card.loyalty }}
-          <p id="attr-desc">Loyalty</p>
+          
         </div>
       </div>
     </div>
@@ -103,8 +100,8 @@ export default {
   display: flex;
   flex-direction: column;
   border: 10px solid black;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -120,8 +117,8 @@ export default {
   border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to bottom right, rgb(24, 24, 24), rgb(250, 74, 74), rgb(26, 26, 26)) 1;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -141,8 +138,8 @@ export default {
   display: flex;
   flex-direction: column;
   border: 10px solid rgb(0, 0, 0);
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -165,8 +162,8 @@ export default {
   border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 122, 61), rgb(0, 0, 0)) 1;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -187,8 +184,8 @@ export default {
   border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to right, rgb(31, 228, 139), rgb(255, 255, 255), rgb(31, 228, 139)) 1;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -209,8 +206,8 @@ export default {
   border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(94, 34, 101), rgb(255, 255, 255)) 1;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -231,8 +228,8 @@ export default {
   border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to right, rgb(0, 0, 0), rgb(30, 85, 117), rgb(0, 0, 0)) 1;
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   padding: 8px 12px 8px 12px;
@@ -255,23 +252,30 @@ export default {
 .card-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 30px;
+
+}
+#card-title {
+  font-size: 70%;
+  text-wrap: nowrap;
+  text-align: center;
+  height: 18px;
 }
 .cardname {
   color: white;
-  font-size: 70%;
   font-weight: 550;
   font-family: 'Orbitron', sans-serif;
   padding: 5px 13px 3px 13px;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.356);
   border-radius: 5px;
   background-image: linear-gradient(60deg, rgb(0, 0, 0), rgb(54, 54, 54));
   text-align: left;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.3);
   height: 20px;
+  width: 100%;
   align-items: center;
 }
 .cardnamedreaded {
@@ -352,26 +356,9 @@ export default {
     box-shadow: 0 0 1px 1px #ffffff96, 0 0 1px 1px rgb(255, 255, 255),  
     0 0 2px 2px rgb(44, 1, 70);
 }
-.card-cost {
-  color: white;
-  padding: 3px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  border: 1px solid white;
-  border-radius: 5px;
-  background-image: linear-gradient(60deg, rgb(0, 0, 0), rgb(54, 54, 54));
-  text-align: right;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.3);
-  height: 20px;
-}
-.coin {
-  height: 12px;
-  margin-top: 3px;
-  margin-left: 5px;
-}
+
 .imagecont {
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.344);
   border-radius: 5px;
   margin: 5px 0px 0px 0px;
   height: 300px;
@@ -649,32 +636,73 @@ export default {
 .card-attr {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  background-image: linear-gradient(60deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.479));
+  padding: 1px;
 }
-.attribute {
+.card-cost {
+  color: white;
+  margin-bottom: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  border-radius: 5px;
+  background-image: linear-gradient(60deg, rgb(0, 0, 0), rgb(54, 54, 54));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23%;
+  text-wrap: nowrap;
+  letter-spacing: 2px;
+  transition: all 0.2s ease-in-out;
+}
+.card-cost:hover {
+  transform: scale(1.4);
+}
+.coin {
+  height: 12px;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.attribute-attack {
+  color: white;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  padding: 1px 5px 1px 5px;
+  width: 23%;
+  text-align: center;
+  background-image: linear-gradient(
+    180deg,
+    rgba(217, 0, 0, 0.888),
+    rgba(101, 0, 0, 0.881)
+  );
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+.attribute-attack:hover {
+  transform: scale(1.4);
+}
+.attribute-resilience {
   color: white;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
   font-size: 28px;
   padding: 1px 10px 1px 10px;
-  width: 30%;
+  width: 23%;
   text-align: center;
   background-image: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.3),
-    rgba(155, 143, 143, 0.3)
+    rgba(0, 148, 67, 0.873),
+    rgba(0, 74, 33, 0.889)
   );
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
-.attribute:hover {
-  transform: scale(1.5);
-  background-image: linear-gradient(
-    60deg,
-    rgb(0, 41, 24, 0.95),
-    rgb(0, 110, 73, 0.95)
-  );
+.attribute-resilience:hover {
+  transform: scale(1.4);
 }
 #attr-desc {
   font-size: 10px;

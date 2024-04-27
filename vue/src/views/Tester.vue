@@ -1,11 +1,11 @@
 <template>
   <div class="tester">
-    <oppstatustile :game="game"/>
+    <tile :card="card"/>
   </div>
 </template>
 
 <script>
-import oppstatustile from "@/components/GameComponents/OppStatusTile.vue"
+import tile from "@/components/Tile.vue"
 
 export default {
     data() {
@@ -143,6 +143,20 @@ export default {
           repLossMod: 0,
         },
       },
+      card: {
+        id: 1,
+        name: "Guy Soldier",
+        cost: 2,
+        type: "Troop - Human",
+        imageName: "soldierguy.jpeg",
+        text1: "Recyclable",
+        text2: "When you recycle this, give a friendly troop +1/+1.",
+        text3: "",
+        text4: "",
+        flavor: "",
+        attack: 2,
+        resilience: 2,
+      },
       shop: {},
       selectedDeck: {},
       // LOADING / ERROR ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,7 +164,7 @@ export default {
     };
     },
     components: {
-        oppstatustile
+      tile
     },
 }
 </script>
@@ -162,5 +176,6 @@ export default {
     align-content: center;
     align-items: center;
     justify-content: center;
+    padding: 100px;
 }
 </style>

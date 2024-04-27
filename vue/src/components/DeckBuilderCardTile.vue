@@ -27,23 +27,19 @@
               color="white"
             />
             <div class="card-row-counter">{{ card.resilience }}</div>
-            <font-awesome-icon
-              :icon="['fal', 'user-shield']"
-              class="icon-db-stat"
-              color="white"
-            />
-            <div class="card-row-counter">{{ card.loyalty }}</div>
+            
           </div>
         </div>
 
         <div class="dropdown-content-active" v-if="this.card.abilities != null">
-          <div v-if="this.card.abilities != null">
+          <!-- <div v-if="this.card.abilities != null">
             <div>
               <div class="db-cont-desc" v-if="this.card.abilities != null">
                 {{ card.abilities }}
               </div>
             </div>
-          </div>
+          </div> -->
+          <tile :card=card />
         </div>
       </div>
     </div>
@@ -72,9 +68,14 @@
 </template>
 
 <script>
+import tile from "../components/Tile.vue";
+
 export default {
   name: "dbcardtile",
   props: ["card"],
+  components: {
+    tile
+  },
   methods: {
     getImageURL(pic) {
       return require("../assets/cards/" + pic);
@@ -275,9 +276,16 @@ export default {
   position: absolute;
   min-width: 265px;
   z-index: 1;
-  margin-top: 2px;
+  margin-bottom: 200px;
   margin-left: 2px;
   transform: scale(1.01);
+  left: 470px;
+}
+
+#dropdown-card {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 #dropdown-card:hover .dropdown-content-active {
   display: flex;
@@ -383,5 +391,19 @@ export default {
 #attr-desc {
   font-size: 10px;
   font-weight: 500;
+}
+.cont-name {
+  color: white;
+  font-weight: 550;
+  font-family: "Bai Jamjuree";
+  padding: 3px 13px 3px 5px;
+  text-align: left;
+  height: 20px;
+}
+.cont-cost {
+  color: white;
+  padding: 3px;
+  font-family: "Bai Jamjuree";
+  font-weight: 600;
 }
 </style>

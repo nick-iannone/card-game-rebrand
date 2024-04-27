@@ -1,24 +1,24 @@
 <template>
-  <div class="card">
+  <div class="card-new">
 
-    <div class="card-header">
-      <div class="card-name">{{ card.name }}</div>
-      <div class="card-cost">
+    <div class="card-header-new">
+      <div class="card-name-new">{{ card.name }}</div>
+      <div class="card-cost-new">
         {{ card.cost }}
       </div>
     </div>
 
-    <div class="type-row">
+    <div class="type-row-new">
       <div>
       {{ card.type }}
       </div>
     </div>
 
-    <div class="image-cont">
-      <img class="image" v-bind:src="getImageURL(card.image)" />
+    <div class="image-cont-new">
+      <img class="image-new" v-bind:src="getImageURL(card.image)" />
       <div class="equip-slot-1" ></div>
       <div class="equip-slot-2" ></div>
-      <div class="card-desc"  >
+      <div class="card-desc-new"  >
         <div class="text">
         {{ card.text1 }}
         </div>
@@ -38,11 +38,11 @@
 
       
     </div>
-    <div class="card-attr">
-        <div class="attr-attack">
+    <div class="card-attr-new">
+        <div class="attr-attack-new">
           {{ card.attack }}
         </div>
-        <div class="attr-resilience">
+        <div class="attr-resilience-new">
           {{ card.resilience }}
         </div>
       </div>
@@ -55,7 +55,7 @@ export default {
   props: ["card"],
   methods: {
     getImageURL(image) {
-      return require("../assets/cards/" + image);
+      return require("../../assets/cards/" + image);
     },
     determineType(card) {
       return {
@@ -67,27 +67,27 @@ export default {
 </script>
 
 <style>
-.card {
+.card-new {
   display: flex;
   flex-direction: column;
   border: 10px solid rgb(167, 165, 174);
-  height: 350px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
   align-items: center;
   justify-content: space-between;
   padding: 8px;
   border-radius: 10px;
-  background-image: url("../assets/textures/soft-wallpaper.png"),
+  background-image: url("../../assets/textures/soft-wallpaper.png"),
     linear-gradient(rgb(74, 74, 74), rgb(0, 0, 0));
   transition: all 0.2s ease-in-out;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
-.card:hover {
+.card-new:hover {
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
   transform: scale(1.03);
   cursor: pointer;
 }
-.card-header {
+.card-header-new {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -105,16 +105,16 @@ export default {
   align-items: center;
   transition: all 0.2s ease-in-out;
 }
-.card-header:hover {
+.card-header-new:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
-.card-cost {
+.card-cost-new {
   color: rgb(255, 255, 255);
   font-weight: 700;
   font-family: 'Orbitron', sans-serif;
   font-size: 22px;
-  background-image: url("../assets/cost.png"), linear-gradient(rgb(23, 139, 255), rgb(0, 0, 0));
+  background-image: linear-gradient(rgb(23, 139, 255), rgb(0, 0, 0));
   border-radius: 2px;
   border: 1.5px solid rgb(0, 47, 155);
   background-size: 100%;
@@ -125,11 +125,11 @@ export default {
   width: 20px;
   transition: all 0.2s ease-in-out;
 }
-.card-cost:hover {
+.card-cost-new:hover {
   transform: scale(1.5);
   cursor: pointer;
 }
-.type-row {
+.type-row-new {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -146,10 +146,10 @@ export default {
   background-image: linear-gradient(rgb(55, 0, 111), rgb(0, 0, 0));
   transition: all 0.2s ease-in-out;
 }
-.image {
+.image-new {
   border-radius: 5px;
 }
-.image-cont {
+.image-cont-new {
   display: flex;
   flex-direction: column;
   width:100%;
@@ -159,9 +159,6 @@ export default {
 }
 .equip-slot-1 {
   position: absolute;
-  background-image: url('../assets/cost.png'), linear-gradient(rgba(45, 45, 45, 0.532), rgba(0, 0, 0, 0.537));
-  background-size: 100%;
-  background-repeat: no-repeat;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border: 1.5px solid rgb(183, 183, 183);
@@ -171,18 +168,15 @@ export default {
 }
 .equip-slot-2 {
   position: absolute;
-  background-image: url('../assets/cost.png'), linear-gradient(rgba(45, 45, 45, 0.532), rgba(0, 0, 0, 0.537));
-  background-size: 100%;
-  background-repeat: no-repeat;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border: 1.5px solid rgb(183, 183, 183);
   height: 60px;
   width: 60px;
   top: 0%;
-  left: 75%;
+  left: 69%;
 }
-.card-desc {
+.card-desc-new {
   position: absolute;
   bottom: 0%;
   display: flex;
@@ -203,7 +197,7 @@ export default {
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
-.card-desc:hover {
+.card-desc-new:hover {
   transform: scale(1.2);
   background-image: linear-gradient(
     60deg,
@@ -213,14 +207,14 @@ export default {
   border:1px solid white;
   border-radius: 5px;
 }
-.card-attr {
+.card-attr-new {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   margin: 2px 0px 1px 0px;
 }
-.attr-attack {
+.attr-attack-new {
   color: white;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
@@ -236,7 +230,7 @@ export default {
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
-.attr-attack:hover {
+.attr-attack-new:hover {
   transform: scale(1.4);
   background-image: linear-gradient(
     60deg,
@@ -244,7 +238,7 @@ export default {
     rgba(110, 0, 0, 0.95)
   );
 }
-.attr-resilience {
+.attr-resilience-new {
   color: white;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
@@ -260,7 +254,7 @@ export default {
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
-.attr-resilience:hover {
+.attr-resilience-new:hover {
   transform: scale(1.4);
   background-image: linear-gradient(
     60deg,

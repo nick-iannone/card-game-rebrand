@@ -1,36 +1,120 @@
 <template>
-    <div class="shop-cards" >
-        <div class="shop-cards-neutral"></div>
-        <div class="shop-cards-faction"></div>
+    <div class="shop-cards">
+        <div class="shop-row-header">
+            CARDS
+        </div>
+        <shopcardpopup :card="card" :key="card.id" v-for="card in this.neutralCards" />
     </div>
 </template>
 
 <script>
-export default {
+import shopcardpopup from "../GameComponents/ShopCardPopup.vue";
 
+export default {
+    components: {
+        shopcardpopup
+    },
+    data() {
+        return {
+            neutralCards: [
+                {
+                    id: 1,
+                    name: "Guy Soldier",
+                    cost: 2,
+                    type: "Troop - Human",
+                    imageName: "soldierguy.jpeg",
+                    abilities: "Recyclable. When you recycle this, give a friendly troop +1/+1.",
+                    text2: "",
+                    text3: "",
+                    text4: "",
+                    flavor: "",
+                    attack: 2,
+                    resilience: 2,
+                },
+                {
+                    id: 2,
+                    name: "Wee Beastie",
+                    cost: 1,
+                    type: "Troop - Organic",
+                    imageName: "unmanaged_organic.jpg",
+                    abilities: "Recyclable",
+                    text2: "When this attacks, it gets +1 Attack.",
+                    text3: "",
+                    text4: "",
+                    flavor: "",
+                    attack: 1,
+                    resilience: 1,
+                },
+                {
+                    id: 3,
+                    name: "Thessa, the Helping Hand",
+                    cost: 3,
+                    type: "Troop - Hybrid",
+                    imageName: "thessa.jpg",
+                    abilities: "Recyclable",
+                    text2: "When this enters, give +3 Attack.",
+                    text3: "Recyclable",
+                    text4: "",
+                    flavor: "",
+                    attack: 2,
+                    resilience: 3,
+                },
+                {
+                    id: 4,
+                    name: "Scout",
+                    cost: 2,
+                    type: "Troop - Robot",
+                    imageName: "scout.jpg",
+                    abilities: "Recyclable",
+                    text2: "Readiness",
+                    text3: "When this enters the CZ, draw.",
+                    text4: "",
+                    flavor: "",
+                    attack: 1,
+                    resilience: 1,
+                },
+                {
+                    id: 5,
+                    name: "Alpha Thrall",
+                    cost: 5,
+                    type: "Troop - Deepened",
+                    imageName: "alpha_thrall.jpg",
+                    abilities: "Readiness. Invulnerable while you control another Thrall. When this dies, shuffle it into your deck instead.",
+                    text2: "",
+                    text3: "",
+                    text4: "",
+                    flavor: "",
+                    attack: 3,
+                    resilience: 4,
+                },
+                {
+                    id: 6,
+                    name: "AXA-99",
+                    cost: 4,
+                    type: "Troop - Hybrid",
+                    imageName: "axa_99.jpg",
+                    abilities: "Your upgrades and non-troop cards cost 1 less.",
+                    text2: "",
+                    text3: "",
+                    text4: "",
+                    flavor: "",
+                    attack: 1,
+                    resilience: 6,
+                },
+
+            ]
+        }
+    },
 }
 </script>
 
 <style>
 .shop-cards {
     width: 100%;
-}
-.shop-cards-neutral {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.491), rgba(0, 18, 29, 0.474));
-    border: 1px solid rgba(255, 255, 255, 0.091);
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    height: 320px;
-    width: 94%;
-}
-.shop-cards-faction {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.491), rgba(0, 18, 29, 0.474));
-    border: 1px solid rgba(255, 255, 255, 0.091);
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    height: 120px;
-    width: 94%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 </style>

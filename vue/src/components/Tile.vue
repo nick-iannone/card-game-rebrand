@@ -5,7 +5,17 @@
       }"
   >
     <div class="tile-header">
-      <div :class="determineNameClass(card)">{{ card.name }}</div>
+      <div class="tile-name">{{ card.name }}</div>
+      
+    </div>
+
+    <div class="tile-desc" :style="card.abilities ? {opacity: 1} : {opacity: 0}">
+
+          {{ card.abilities }}
+
+    </div>
+
+    <div class="tile-attr">
       <div class="tile-cost">
         {{ card.cost }} <font-awesome-icon
             :icon="['fa', 'coins']"
@@ -13,27 +23,15 @@
             color="yellow"
           />
       </div>
-    </div>
-
-    <div class="tile-desc" :style="card.abilities ? {opacity: 1} : {opacity: 0}">
-        <div id="abilities"  >
-          {{ card.abilities }}
-        </div>
-    </div>
-
-    <div class="tile-attr">
-        <div class="attr">
+        <div class="attr-attack">
           {{ card.attack }}
-          <p id="attr-desc">Attack</p>
+          <!-- <p id="attr-desc">Attack</p> -->
         </div>
-        <div class="attr">
+        <div class="attr-resilience">
           {{ card.resilience }}
-          <p id="attr-desc">Resilience</p>
+          <!-- <p id="attr-desc">Resilience</p> -->
         </div>
-        <div class="attr">
-          {{ card.loyalty }}
-          <p id="attr-desc">Loyalty</p>
-        </div>
+        
     </div>    
   </div>
 </template>
@@ -60,14 +58,14 @@ export default {
 <style>
 .tile {
   flex-direction: column;
-  border: 8px solid black;
+  /* border: 8px solid rgba(203, 238, 248, 0); */
   width: 210px;
-  height: 158px;
+  height: 108px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 8px 12px;
-  border-radius: 15px;
+  padding: 4px;  
+  border-radius: 10px;
   transition: all 0.2s ease-in-out;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -94,8 +92,10 @@ export default {
   border-radius: 5px;
   background-image: url("../assets/textures/egg-shell.png"),
     linear-gradient(60deg, rgba(3, 24, 49, 0.8), rgb(34, 34, 92, 0.8));
-  text-align: left;
-  height: 25px;
+  text-align: center;
+  width: 100%;
+  padding:3px 3px 3px 3px;
+  text-wrap: nowrap;
 }
 .tile-name-hallowed {
   color: white;
@@ -125,16 +125,16 @@ export default {
 }
 .tile-cost {
   color: white;
-  padding: 3px;
+  padding: 4px 2px 0px 2px;
   font-family: "Bai Jamjuree";
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  border: 1px solid white;
-  border-radius: 5px;
+  border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
   background-image: url("../assets/textures/egg-shell.png"),
-    linear-gradient(60deg, rgba(3, 24, 49, 0.8), rgb(34, 34, 92, 0.8));
-  text-align: right;
-  height: 25px;
+    linear-gradient(60deg, rgba(0, 0, 0, 0.925), rgba(0, 0, 0, 0));
+  text-align: center;
+  width: 30%;
 }
 .tile-desc {
   display: flex;
@@ -142,8 +142,12 @@ export default {
   justify-content: flex-end;
   border: 1px solid rgb(160, 160, 160);
   border-radius: 5px;
-  padding: 4px;
+  padding: 2px;
   height: auto;
+  font-size: 10px;
+  font-family: "Bai Jamjuree";
+
+  color: white;
   background-image: linear-gradient(
     60deg,
     rgba(82, 82, 82, 0.7),
@@ -162,10 +166,10 @@ export default {
 .tile-attr {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
 }
-.attr {
+.attr-attack {
   color: white;
   font-weight: 600;
   font-family: "Bai Jamjuree";
@@ -174,18 +178,41 @@ export default {
   text-align: center;
   background-image: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.3),
-    rgba(155, 143, 143, 0.3)
+    rgba(217, 0, 0, 0.888),
+    rgba(101, 0, 0, 0.881)
   );
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
-.attr:hover {
+.attr-attack:hover {
   transform: scale(1.5);
   background-image: linear-gradient(
-    60deg,
-    rgb(0, 41, 24, 0.95),
-    rgb(0, 110, 73, 0.95)
+    180deg,
+    rgba(217, 0, 0, 0.888),
+    rgba(101, 0, 0, 0.881)
+  )
+}
+.attr-resilience {
+  color: white;
+  font-weight: 600;
+  font-family: "Bai Jamjuree";
+  font-size: 20px;
+  width: 30%;
+  text-align: center;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 148, 67, 0.873),
+    rgba(0, 74, 33, 0.889)
+  );
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+.attr-resilience:hover {
+  transform: scale(1.5);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 148, 67, 0.873),
+    rgba(0, 74, 33, 0.889)
   );
 }
 </style>

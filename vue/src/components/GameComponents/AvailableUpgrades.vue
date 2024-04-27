@@ -56,6 +56,5 @@ export default {
     padding: 4px 4px 4px 10px;
     width: 92%;
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.649), rgba(44, 0, 78, 0.474), rgba(0, 0, 0, 0.649));
-
 }
 </style>
