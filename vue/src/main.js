@@ -4,8 +4,8 @@ import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPaperPlane, faBell, faCoins, faScroll, faUsers, faAlignJustify, faHandPaper, faCircle, faSmile, faStarOfLife, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-import { faCity, faCommentAltExclamation, faCommentAltLines, faCommentAltSlash, faMonitorHeartRate} from '@fortawesome/pro-solid-svg-icons'
+import { faPaperPlane, faBell, faCoins, faScroll, faUsers, faAlignJustify, faHandPaper, faCircle, faSmile, faStarOfLife, faSignOutAlt, faQuestion, faSpinner, faFan } from '@fortawesome/free-solid-svg-icons'
+import { faCity, faCommentAltExclamation, faCommentAltLines, faCommentAltSlash, faMonitorHeartRate, } from '@fortawesome/pro-solid-svg-icons'
 import { faScrollOld as falScrollOld, faCaretCircleRight, faCoin, faMicrochip, faChartNetwork, faFileChartLine, faCoins as falCoins} from '@fortawesome/pro-light-svg-icons'
 import { faScrollOld as fadScrollOld } from '@fortawesome/pro-duotone-svg-icons'
 import { faDiceD20 as fadDiceD20 } from '@fortawesome/pro-duotone-svg-icons'
@@ -27,7 +27,7 @@ import VueChatScroll from 'vue-chat-scroll'
 
 // import vuetify from '@/plugins/vuetify'
 
-library.add(faPaperPlane, faMicrochip, falCoins, faFileChartLine , faMonitorHeartRate, faChartNetwork , faBell, faCoin, faCity, faCoins, faMinusSquare, faCommentAltExclamation, faCommentAltLines, faCommentAltSlash, faSignOutAlt, faShieldAlt, faUserShield, faPlusSquare, faTrashAlt, faScroll, faUsers, faCaretCircleRight, faAlignJustify, faHandPaper, faCircle, faSmile, faStarOfLife, falScrollOld, fadScrollOld, falHelmetBattle, fadDiceD20, fadHelmetBattle, falSword, fadSword)
+library.add(faPaperPlane, faMicrochip, falCoins, faFileChartLine , faFan, faSpinner, faQuestion, faMonitorHeartRate, faChartNetwork , faBell, faCoin, faCity, faCoins, faMinusSquare, faCommentAltExclamation, faCommentAltLines, faCommentAltSlash, faSignOutAlt, faShieldAlt, faUserShield, faPlusSquare, faTrashAlt, faScroll, faUsers, faCaretCircleRight, faAlignJustify, faHandPaper, faCircle, faSmile, faStarOfLife, falScrollOld, fadScrollOld, falHelmetBattle, fadDiceD20, fadHelmetBattle, falSword, fadSword)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('jw-pagination', JwPagination)

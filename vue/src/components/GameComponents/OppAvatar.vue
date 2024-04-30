@@ -4,7 +4,10 @@
           OPPONENT
       </div>
       <div class="opp-avatar-abilities-row">
-        <img class="opp-avatar-image" src="@/assets/cards/unused/marv.jpg" />
+        <div class="opp-image-circle">
+          <img class="opp-avatar-image" src="@/assets/cards/unused/marv.jpg" />
+        </div>
+        
         <div class="opp-abilities-cont">
           <div class="opp-ability" >
   
@@ -32,8 +35,8 @@
       height: 200px;
       width: 248px;
       border-radius: 10px;
-      background-image: url("../../assets/textures/datastream-corner.png"), linear-gradient(60deg,
-        rgba(32, 249, 159, 0.7),
+      background-image: url("../../assets/textures/3px-tile.png"), linear-gradient(60deg,
+        rgba(249, 32, 32, 0.7),
         rgba(0, 0, 0, 0.7));
   }
   .status-div-opp-username {
@@ -48,7 +51,7 @@
     border: 1px solid rgb(151, 151, 151);
     border-radius: 5px;
     margin: 5px 5px 0px 5px;
-    background-image: linear-gradient(180deg, rgb(0, 26, 39), rgb(1, 62, 47));
+    background-image: linear-gradient(180deg, rgb(0, 26, 39), rgb(62, 1, 1));
     width: 96%;
   }
   .opp-avatar-abilities-row {
@@ -63,7 +66,6 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 3px solid rgba(11, 40, 30, 0.517);
   }
   .opp-abilities-cont {
       display: flex;
@@ -72,14 +74,30 @@
       align-items: center;
       height: 148px;
       width: 64px;
-      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.581));
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.581));
       border-radius: 5px;
   }
   .opp-ability {
-      border: 1px solid rgba(92, 236, 255, 0.574);
+      border: 1px solid rgba(255, 92, 92, 0.574);
       border-radius: 5px;
       height: 50px;
       width: 50px;
       background-color: rgba(0, 20, 59, 0.301);
   }
+  .opp-image-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border-top: 2px ridge #000000e1;
+        border-right: 2px ridge #03945daf;
+        border-left: 2px solid rgba(255, 0, 0, 0.479);
+        border-bottom: 2px ridge #00000088;
+        box-shadow: -5px 0 5px rgb(255, 1, 1), 5px 0 5px rgb(0, 0, 0);
+        animation: spin 10s infinite linear;
+    }
+    .opp-image-circle img {
+        animation: spin 10s infinite reverse linear;
+        width: 100%;
+        border-radius: 50%;
+    }
   </style>

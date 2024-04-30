@@ -3,7 +3,9 @@
     <div class="status-div-my-username">
         TESTER
     </div>
-    <img class="avatar-image" src="@/assets/cards/unused/L1NN.jpg" />
+    <div class="image-circle">
+      <img class="avatar-image" src="@/assets/cards/unused/L1NN.jpg" />
+    </div>
     <div class="abilities-cont">
         <div class="ability" >
 
@@ -36,9 +38,9 @@ export default {
     height: 399px;
     width: 250px;
     border-radius: 10px;
-    background-image: url("../../assets/textures/datastream-corner.png"), linear-gradient(60deg,
+    background-image: url('../../assets/textures/3px-tile.png'), linear-gradient(180deg,
       rgba(46, 117, 240, 0.7),
-      rgba(0, 0, 0, 0.7));
+      rgb(0, 0, 0));
 }
 .status-div-my-username {
   color: rgb(255, 255, 255);
@@ -56,25 +58,49 @@ export default {
   width: 96%;
 }
 .avatar-image {
-    width: 240px;
-    height: 240px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
-    border: 3px solid rgba(79, 179, 255, 0.517);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.63);
+
 }
 .abilities-cont {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 100px;
     width: 100%;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.581));
 }
 .ability {
     border: 1px solid rgba(92, 228, 255, 0.574);
     border-radius: 5px;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     background-color: rgba(0, 20, 59, 0.301);
 }
+
+.image-circle {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        border-top: 3px ridge #0051ff8c;
+        border-right: 3px ridge #ffffffaf;
+        border-left: 3px solid rgba(255, 255, 255, 0.479);
+        border-bottom: 3px ridge #4973ff88;
+        box-shadow: -5px 0 5px rgb(255, 255, 255), 5px 0 5px rgb(216, 9, 188);
+        padding: 0px;
+        animation: spin 10s infinite linear;
+    }
+    .image-circle img {
+        animation: spin 10s infinite reverse linear;
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(1turn);
+        }}
+
 </style>

@@ -9,6 +9,20 @@
             <boon />
             <boon />
         </div>
+        <div class="row-me">
+            <div class="row-reroll">
+                <div class="reroll-cost">
+                    3 <font-awesome-icon :icon="['fa', 'coins']" class="icon" color="yellow" />&nbsp;:&nbsp;
+                    <font-awesome-icon :icon="['fa', 'spinner']" class="icon-reroll" />
+                </div>
+            </div>
+            <div class="row-reroll">
+                <div class="reroll-cost">
+                    4 <font-awesome-icon :icon="['fa', 'coins']" class="icon" color="yellow" />&nbsp;:&nbsp;
+                    <font-awesome-icon :icon="['fa', 'question']" class="icon-reroll" />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -249,7 +249,7 @@ export default {
   transform: scale(1.03);
   cursor: pointer;
 }
-.card-header {
+/* .card-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -257,7 +257,7 @@ export default {
   width: 100%;
   height: 30px;
 
-}
+} */
 #card-title {
   font-size: 70%;
   text-wrap: nowrap;
