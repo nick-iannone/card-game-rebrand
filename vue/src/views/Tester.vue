@@ -1,6 +1,6 @@
 <template>
   <div class="tester">
-    <cardnew :card="card"/>
+    <cardnew :card="card" />
   </div>
 </template>
 
@@ -8,8 +8,8 @@
 import cardnew from "@/components/CardNew.vue"
 
 export default {
-    data() {
-        return {
+  data() {
+    return {
       // GAME STATE  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       game: {
         hand: [],
@@ -101,7 +101,7 @@ export default {
         oppGame: {
           username: this.$store.state.game.oppGame.username,
           lastEvent: "",
-          directive: {name: ""},
+          directive: { name: "" },
           readyForBattle: false,
           concede: false,
           rollPhase: false,
@@ -144,42 +144,44 @@ export default {
         },
       },
       card: {
-        id: 12,
-        name: "Credit Card",
-        cost: 0,
-        type: "Credit",
+        id: 1,
+        name: "Guy Soldier",
+        cost: 2,
+        type: "Troop",
+        faction: "Human",
         image: "soldierguy.jpeg",
         text1: "Recyclable",
-        text2: "Add [1]",
+        text2: "When this enters, give a friendly troop +1/+1.",
         text3: "",
         text4: "",
         flavor: "",
-        attack: null,
-        resilience: null,
+        attack: 2,
+        resilience: 2,
         mod1: true,
         mod2: true,
         mod3: false,
         mod4: false,
+        mods: [],
       },
       shop: {},
       selectedDeck: {},
       // LOADING / ERROR ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       isLoading: true,
     };
-    },
-    components: {
-      cardnew
-    },
+  },
+  components: {
+    cardnew
+  },
 }
 </script>
 
 <style>
 .tester {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
 }
 </style>

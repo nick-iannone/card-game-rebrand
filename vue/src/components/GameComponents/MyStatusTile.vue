@@ -70,7 +70,7 @@ export default {
     "rep counts"
   ;
 
-  height: 195px;
+  height: 191px;
   width: 250px;
   
   margin: 5px;
@@ -81,21 +81,21 @@ export default {
   gap: 5px;
   
   display: grid;
-  grid-template-rows: 118px 78px;
+  grid-template-rows: 118px 73px;
   grid-template-columns: 123px 123px;
-  row-gap: 4px;
+  row-gap: 2px;
   column-gap: 4px;
   grid-template-areas:
     "avatar-hp resources"
     "rep counts"
   ;
 
-  height: 195px;
+  height: 192px;
   width: 250px;
   
   margin: 5px;
   
-  border: 2px solid yellow;
+  border: 1px solid yellow;
   border-radius: 10px;
   box-shadow: 0 0 10px rgb(226, 255, 62), -3px 0 4px rgb(0, 150, 32),
     3px 0 4px rgb(62, 255, 104);

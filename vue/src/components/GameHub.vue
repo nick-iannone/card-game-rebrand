@@ -33,7 +33,7 @@ export default {
     },
     rotate(newMessage) {
       if (newMessage != "") {
-        if (this.items.length < 8) {
+        if (this.items.length < 4) {
           let prependId = this.id.toString();
           newMessage = prependId + newMessage;
           this.id++;

@@ -35,6 +35,7 @@ export default {
                     mod2: true,
                     mod3: false,
                     mod4: false,
+                    mods: [],
                 },
                 {
                     id: 2,

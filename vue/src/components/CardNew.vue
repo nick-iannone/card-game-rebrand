@@ -13,10 +13,10 @@
 
     <div class="image-cont-new">
       <img class="image-new" v-bind:src="getImageURL(card.image)" />
-      <div id="equip-slot" class="equip-slot-1" v-if="card.mod1"></div>
-      <div id="equip-slot" class="equip-slot-2" v-if="card.mod2"></div>
-      <div id="equip-slot" class="equip-slot-3" v-if="card.mod3"></div>
-      <div id="equip-slot" class="equip-slot-4" v-if="card.mod4"></div>
+      <draggable id="equip-slot-1" class="equip-slot-1" v-if="card.mod1" v-model="card.mods[0]" :options="{ group: 'upgrades' }"/>
+      <draggable id="equip-slot-2" class="equip-slot-2" v-if="card.mod2" v-model="card.mods[1]" :options="{ group: 'upgrades' }"/>
+      <draggable id="equip-slot-3" class="equip-slot-3" v-if="card.mod3" v-model="card.mods[2]" :options="{ group: 'upgrades' }"/>
+      <draggable id="equip-slot-4" class="equip-slot-4" v-if="card.mod4" v-model="card.mods[3]" :options="{ group: 'upgrades' }"/>
       <div class="card-desc-new"  >
         <div class="text" :style="this.card.text1 == 'Recyclable' || this.card.text1 == 'Readiness' ? 'fontWeight: 700':'fontWeight: 500'">
         {{ card.text1 }}
@@ -56,9 +56,11 @@
 </template>
 
 <script>
+
 export default {
   name: "card",
   props: ["card"],
+  components:{},
   methods: {
     getImageURL(image) {
       return require("../assets/cards/" + image);
@@ -250,13 +252,35 @@ export default {
 }
 
 
-#equip-slot {
+#equip-slot-1 {
   position: absolute;
   border: 1.5px solid rgba(183, 183, 183, 0.61);
   height: 50px;
   width: 50px;
   background-image: linear-gradient(rgba(0, 0, 0, .400), rgb(0, 0, 0, .400))
 }
+#equip-slot-2 {
+  position: absolute;
+  border: 1.5px solid rgba(183, 183, 183, 0.61);
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, .400), rgb(0, 0, 0, .400))
+}
+#equip-slot-3 {
+  position: absolute;
+  border: 1.5px solid rgba(183, 183, 183, 0.61);
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, .400), rgb(0, 0, 0, .400))
+}
+#equip-slot-4 {
+  position: absolute;
+  border: 1.5px solid rgba(183, 183, 183, 0.61);
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, .400), rgb(0, 0, 0, .400))
+}
+
 .equip-slot-1 {
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;

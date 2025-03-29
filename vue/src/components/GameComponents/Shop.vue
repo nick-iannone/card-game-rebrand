@@ -2,7 +2,9 @@
   <div class="shop">
     <div class="shop-header"><span class="material-symbols-outlined">
         credit_card_heart
-      </span>SH0P</div>
+      </span>SH0P<span class="material-symbols-outlined">
+        credit_card_heart
+      </span></div>
     <availableupgrades />
     <availableboons />
     <shopcards />
@@ -30,7 +32,7 @@ export default {
   /* display: grid; */
   width: 350px;
   height: 854px;
-  background-image: url("../../assets/textures/beige-paper.png"), linear-gradient(90deg, rgb(0, 0, 0), rgb(19, 11, 50), rgb(65, 17, 75), rgb(0, 0, 0));
+  background-image: url("../../assets/textures/3px-tile.png"), linear-gradient(90deg, rgb(0, 0, 0), rgb(19, 11, 50), rgb(65, 17, 75), rgb(0, 0, 0));
   border: 1px solid rgba(71, 71, 71, 0.345);
   border-radius: 5px;
   margin: 5px;
@@ -45,7 +47,7 @@ export default {
   font-size: 62px;
   font-weight: 900;
   font-family: "Sixtyfour";
-  padding: 15px 13px 3px 0px;
+  padding: 15px 0px 3px 0px;
   text-align: center;
   letter-spacing: 0px;
   text-shadow: 2px 2px rgba(255, 255, 255, 0.34);
