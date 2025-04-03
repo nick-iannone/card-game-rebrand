@@ -49,47 +49,51 @@ export default {
     getImageURL(pic) {
       return require("../assets/cards/" + pic);
     },
-    determineRarity(card) {
-      return {
-        card: !card.isHallowed && !card.isHeroic && !card.isFabled,
-        cardhallowed: card.isHallowed,
-        cardfabled: card.isFabled,
-        cardheroic: card.isHeroic,
-        carddreaded: card.isDreaded,
-        cardfeared: card.isFeared,
-        cardvile: card.isVile
-      };
+    determineRarity() {
+      return 'card';
+      // return {
+      //   card: !card.isHallowed && !card.isHeroic && !card.isFabled,
+      //   cardhallowed: card.isHallowed,
+      //   cardfabled: card.isFabled,
+      //   cardheroic: card.isHeroic,
+      //   carddreaded: card.isDreaded,
+      //   cardfeared: card.isFeared,
+      //   cardvile: card.isVile
+      // };
     },
-    determineImageBorder(card) {
-      return {
-        imagecont: !card.isHallowed && !card.isHeroic && !card.isFabled,
-        imageconthallowed: card.isHallowed,
-        imagecontfabled: card.isFabled,
-        imagecontheroic: card.isHeroic,
-        imagecontdreaded: card.isDreaded,
-        imagecontfeared: card.isFeared,
-        imagecontvile: card.isVile
-      }
+    determineImageBorder() {
+      return 'imagecont';
+      // return {
+      //   imagecont: !card.isHallowed && !card.isHeroic && !card.isFabled,
+      //   imageconthallowed: card.isHallowed,
+      //   imagecontfabled: card.isFabled,
+      //   imagecontheroic: card.isHeroic,
+      //   imagecontdreaded: card.isDreaded,
+      //   imagecontfeared: card.isFeared,
+      //   imagecontvile: card.isVile
+      // }
     },
-    determineDecriptionClass(card) {
-      return {
-        'card-desc': !card.isHallowed && !card.isFabled,
-        'card-desc-hallowed': card.isHallowed,
-        'card-desc-fabled': card.isFabled,
-        'card-desc-dreaded': card.isDreaded,
-        'card-desc-feared': card.isFeared
-      }
+    determineDecriptionClass() {
+      return 'card-desc';
+      // return {
+      //   'card-desc': !card.isHallowed && !card.isFabled,
+      //   'card-desc-hallowed': card.isHallowed,
+      //   'card-desc-fabled': card.isFabled,
+      //   'card-desc-dreaded': card.isDreaded,
+      //   'card-desc-feared': card.isFeared
+      // }
     },
-    cardNameClass(card) {
-      return {
-        cardname: !card.isHallowed,
-        cardnamehallowed: card.isHallowed,
-        cardnamedreaded: card.isDreaded,
-        cardnamefeared: card.isFeared,
-        cardnamefabled: card.isFabled,
-        cardnameheroic: card.isHeroic,
-        cardnamevile: card.isVile,
-      }
+    cardNameClass() {
+      return 'cardname';
+      // return {
+      //   cardname: !card.isHallowed,
+      //   cardnamehallowed: card.isHallowed,
+      //   cardnamedreaded: card.isDreaded,
+      //   cardnamefeared: card.isFeared,
+      //   cardnamefabled: card.isFabled,
+      //   cardnameheroic: card.isHeroic,
+      //   cardnamevile: card.isVile,
+      // }
     }
   },
 };

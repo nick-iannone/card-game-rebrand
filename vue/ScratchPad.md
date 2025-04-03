@@ -24,10 +24,7 @@ card: {
   flavor: "String",
   attack: int,
   resilience: int,
-  mod1: boolean,
-  mod2: boolean,
-  mod3: boolean,
-  mod4: boolean,
+  modSlots: int,
   upgrades: [
     {
       upgrade: {
@@ -45,12 +42,6 @@ card: {
 	isAttacking: boolean,
 	isTarget: boolean,
 	canAttack: boolean,
-	isHeroic: boolean,
-	isFabled: boolean,
-	isHallowed: boolean,
-	isVile: boolean,
-	isFeared: boolean,
-	isDreaded: boolean,
 	count: int,
 }
 

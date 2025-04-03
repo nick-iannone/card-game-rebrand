@@ -35,7 +35,6 @@ export default {
                     mod2: true,
                     mod3: false,
                     mod4: false,
-                    mods: [],
                 },
                 {
                     id: 2,
@@ -89,7 +88,7 @@ export default {
                     flavor: "",
                     attack: 1,
                     resilience: 1,
-                    mod1: false,
+                    mod1: true,
                     mod2: true,
                     mod3: false,
                     mod4: false,

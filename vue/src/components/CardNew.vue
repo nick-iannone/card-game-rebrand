@@ -56,11 +56,13 @@
 </template>
 
 <script>
-
+import draggable from 'vuedraggable';
 export default {
-  name: "card",
+  name: "card-new",
   props: ["card"],
-  components:{},
+  components:{
+    draggable
+  },
   methods: {
     getImageURL(image) {
       return require("../assets/cards/" + image);

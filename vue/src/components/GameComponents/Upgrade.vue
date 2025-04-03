@@ -1,5 +1,6 @@
 <template>
   <div class="upgrade" >
+    <img class="upgrade-img" src="../../assets/icons/2/PNG/2.png" />
     <!-- <img class="upgrade-img" v-bind:src="getUpgradeImageURL(upgrade.image)" /> -->
 
   </div>

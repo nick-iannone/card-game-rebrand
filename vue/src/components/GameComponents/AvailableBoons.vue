@@ -3,12 +3,12 @@
         <div class="shop-row-header">
             BOONS
         </div>
-        <div class="shop-item-row">
+        <draggable class="shop-item-row" :options="{ group: 'boons' }">
             <boon />
             <boon />
             <boon />
             <boon />
-        </div>
+        </draggable>
         <div class="row-me">
             <div class="row-reroll">
                 <div class="reroll-cost">
@@ -28,11 +28,13 @@
 
 <script>
 import boon from "@/components/GameComponents/Boon.vue";
+import draggable from "vuedraggable";
 
 export default {
     name: "item-row",
     components: {
-        boon
+        boon,
+        draggable
     }
 }
 </script>

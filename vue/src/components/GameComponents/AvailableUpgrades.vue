@@ -3,12 +3,12 @@
         <div class="shop-row-header">
             UPGRADES
         </div>
-        <div class="shop-item-row">
+        <draggable class="shop-item-row" :options="{ group: 'upgrades' }">
             <upgrade />
             <upgrade />
             <upgrade />
             <upgrade />
-        </div>
+        </draggable>
         <div class="row-me">
             <div class="row-reroll">
                 <div class="reroll-cost">
@@ -30,11 +30,13 @@
 
 <script>
 import upgrade from "@/components/GameComponents/Upgrade.vue";
+import draggable from "vuedraggable";
 
 export default {
     name: "item-row",
     components: {
-        upgrade
+        upgrade,
+        draggable
     }
 }
 </script>
